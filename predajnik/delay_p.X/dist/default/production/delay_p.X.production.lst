@@ -1,0 +1,1041 @@
+
+
+Microchip Technology PIC LITE Macro Assembler V1.35 build -356382666 
+                                                                                               Sun Feb 21 13:40:22 2016
+
+Microchip Technology Omniscient Code Generator v1.35 (Free mode) build 201507080246
+     1                           	processor	16F1939
+     2                           	opt	pw 120
+     3                           	opt	lm
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1
+     6                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     7                           	psect	maintext,global,class=CODE,merge=1,split=1,delta=2
+     8                           	psect	text1,local,class=CODE,merge=1,delta=2
+     9                           	psect	text2,local,class=CODE,merge=1,delta=2
+    10                           	psect	text3,local,class=CODE,merge=1,delta=2
+    11                           	dabs	1,0x7E,2
+    12  0000                     	;# 
+    13  0001                     	;# 
+    14  0002                     	;# 
+    15  0003                     	;# 
+    16  0004                     	;# 
+    17  0005                     	;# 
+    18  0006                     	;# 
+    19  0007                     	;# 
+    20  0008                     	;# 
+    21  0009                     	;# 
+    22  000A                     	;# 
+    23  000B                     	;# 
+    24  000C                     	;# 
+    25  000D                     	;# 
+    26  000E                     	;# 
+    27  000F                     	;# 
+    28  0010                     	;# 
+    29  0011                     	;# 
+    30  0012                     	;# 
+    31  0013                     	;# 
+    32  0015                     	;# 
+    33  0016                     	;# 
+    34  0016                     	;# 
+    35  0017                     	;# 
+    36  0018                     	;# 
+    37  0019                     	;# 
+    38  001A                     	;# 
+    39  001B                     	;# 
+    40  001C                     	;# 
+    41  001E                     	;# 
+    42  001F                     	;# 
+    43  008C                     	;# 
+    44  008D                     	;# 
+    45  008E                     	;# 
+    46  008F                     	;# 
+    47  0090                     	;# 
+    48  0091                     	;# 
+    49  0092                     	;# 
+    50  0093                     	;# 
+    51  0095                     	;# 
+    52  0096                     	;# 
+    53  0097                     	;# 
+    54  0098                     	;# 
+    55  0099                     	;# 
+    56  009A                     	;# 
+    57  009B                     	;# 
+    58  009B                     	;# 
+    59  009C                     	;# 
+    60  009D                     	;# 
+    61  009E                     	;# 
+    62  010C                     	;# 
+    63  010D                     	;# 
+    64  010E                     	;# 
+    65  010F                     	;# 
+    66  0110                     	;# 
+    67  0111                     	;# 
+    68  0112                     	;# 
+    69  0113                     	;# 
+    70  0114                     	;# 
+    71  0115                     	;# 
+    72  0116                     	;# 
+    73  0117                     	;# 
+    74  0118                     	;# 
+    75  0119                     	;# 
+    76  011A                     	;# 
+    77  011B                     	;# 
+    78  011D                     	;# 
+    79  018C                     	;# 
+    80  018D                     	;# 
+    81  018F                     	;# 
+    82  0190                     	;# 
+    83  0191                     	;# 
+    84  0191                     	;# 
+    85  0192                     	;# 
+    86  0193                     	;# 
+    87  0193                     	;# 
+    88  0193                     	;# 
+    89  0194                     	;# 
+    90  0195                     	;# 
+    91  0196                     	;# 
+    92  0199                     	;# 
+    93  019A                     	;# 
+    94  019B                     	;# 
+    95  019B                     	;# 
+    96  019B                     	;# 
+    97  019B                     	;# 
+    98  019C                     	;# 
+    99  019C                     	;# 
+   100  019D                     	;# 
+   101  019E                     	;# 
+   102  019F                     	;# 
+   103  020D                     	;# 
+   104  0210                     	;# 
+   105  0211                     	;# 
+   106  0212                     	;# 
+   107  0213                     	;# 
+   108  0214                     	;# 
+   109  0215                     	;# 
+   110  0215                     	;# 
+   111  0216                     	;# 
+   112  0217                     	;# 
+   113  0291                     	;# 
+   114  0291                     	;# 
+   115  0292                     	;# 
+   116  0293                     	;# 
+   117  0294                     	;# 
+   118  0295                     	;# 
+   119  0295                     	;# 
+   120  0296                     	;# 
+   121  0298                     	;# 
+   122  0298                     	;# 
+   123  0299                     	;# 
+   124  029A                     	;# 
+   125  029B                     	;# 
+   126  029C                     	;# 
+   127  029C                     	;# 
+   128  029D                     	;# 
+   129  029E                     	;# 
+   130  029F                     	;# 
+   131  0311                     	;# 
+   132  0311                     	;# 
+   133  0312                     	;# 
+   134  0313                     	;# 
+   135  0314                     	;# 
+   136  0315                     	;# 
+   137  0315                     	;# 
+   138  0316                     	;# 
+   139  0318                     	;# 
+   140  0318                     	;# 
+   141  0319                     	;# 
+   142  031A                     	;# 
+   143  031C                     	;# 
+   144  031C                     	;# 
+   145  031D                     	;# 
+   146  031E                     	;# 
+   147  0394                     	;# 
+   148  0395                     	;# 
+   149  0396                     	;# 
+   150  0415                     	;# 
+   151  0416                     	;# 
+   152  0417                     	;# 
+   153  041C                     	;# 
+   154  041D                     	;# 
+   155  041E                     	;# 
+   156  0791                     	;# 
+   157  0792                     	;# 
+   158  0793                     	;# 
+   159  0794                     	;# 
+   160  0795                     	;# 
+   161  0798                     	;# 
+   162  0799                     	;# 
+   163  079A                     	;# 
+   164  07A0                     	;# 
+   165  07A1                     	;# 
+   166  07A2                     	;# 
+   167  07A3                     	;# 
+   168  07A4                     	;# 
+   169  07A5                     	;# 
+   170  07A6                     	;# 
+   171  07A7                     	;# 
+   172  07A8                     	;# 
+   173  07A9                     	;# 
+   174  07AA                     	;# 
+   175  07AB                     	;# 
+   176  0FE4                     	;# 
+   177  0FE5                     	;# 
+   178  0FE6                     	;# 
+   179  0FE7                     	;# 
+   180  0FE8                     	;# 
+   181  0FE9                     	;# 
+   182  0FEA                     	;# 
+   183  0FEB                     	;# 
+   184  0FED                     	;# 
+   185  0FEE                     	;# 
+   186  0FEF                     	;# 
+   187  0072                     _RC2	set	114
+   188  008E                     _TRISCbits	set	142
+   189  019C                     _SPBRGH	set	412
+   190  019B                     _SPBRGL	set	411
+   191  0CFB                     _BRG16	set	3323
+   192  0CF2                     _BRGH	set	3314
+   193  0CEC                     _CREN	set	3308
+   194  0CEF                     _SPEN	set	3311
+   195  0CF4                     _SYNC	set	3316
+   196  0CF5                     _TXEN	set	3317
+   197                           
+   198                           ; #config settings
+   199  0000                     
+   200                           	psect	cinit
+   201  07FC                     start_initialization:	
+   202  07FC                     __initialization:	
+   203                           
+   204                           ; Clear objects allocated to COMMON
+   205  07FC  01F7               	clrf	__pbssCOMMON& (0+127)
+   206  07FD                     end_of_initialization:	
+   207                           ;End of C runtime variable initialization code
+   208                           
+   209  07FD                     __end_of__initialization:	
+   210  07FD  0020               	movlb	0
+   211  07FE  3187  2F26         	ljmp	_main	;jump to C main() function
+   212                           
+   213                           	psect	bssCOMMON
+   214  0077                     __pbssCOMMON:	
+   215  0077                     _podatak:	
+   216  0077                     	ds	1
+   217                           
+   218                           	psect	cstackCOMMON
+   219  0070                     __pcstackCOMMON:	
+   220  0070                     ?_init_regs:	
+   221  0070                     ??_init_regs:	
+   222                           ; 0 bytes @ 0x0
+   223                           
+   224  0070                     ?_rf_send:	
+   225                           ; 0 bytes @ 0x0
+   226                           
+   227  0070                     ??_rf_send:	
+   228                           ; 0 bytes @ 0x0
+   229                           
+   230  0070                     ?_init_comm:	
+   231                           ; 0 bytes @ 0x0
+   232                           
+   233  0070                     ??_init_comm:	
+   234                           ; 0 bytes @ 0x0
+   235                           
+   236  0070                     ?_main:	
+   237                           ; 0 bytes @ 0x0
+   238                           
+   239                           
+   240                           ; 0 bytes @ 0x0
+   241  0070                     	ds	2
+   242  0072                     rf_send@podatak:	
+   243                           
+   244                           ; 1 bytes @ 0x2
+   245  0072                     	ds	1
+   246  0073                     rf_send@i:	
+   247                           
+   248                           ; 1 bytes @ 0x3
+   249  0073                     	ds	1
+   250  0074                     ??_main:	
+   251                           
+   252                           ; 0 bytes @ 0x4
+   253  0074                     	ds	3
+   254                           
+   255                           	psect	maintext
+   256  0726                     __pmaintext:	
+   257 ;;
+   258 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   259 ;;
+   260 ;; *************** function _main *****************
+   261 ;; Defined at:
+   262 ;;		line 44 in file "main.c"
+   263 ;; Parameters:    Size  Location     Type
+   264 ;;		None
+   265 ;; Auto vars:     Size  Location     Type
+   266 ;;		None
+   267 ;; Return value:  Size  Location     Type
+   268 ;;		None               void
+   269 ;; Registers used:
+   270 ;;		wreg, status,2, status,0, pclath, cstack
+   271 ;; Tracked objects:
+   272 ;;		On entry : B1F/0
+   273 ;;		On exit  : 0/0
+   274 ;;		Unchanged: 0/0
+   275 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12
+   276 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   277 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   278 ;;      Temps:          3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   279 ;;      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   280 ;;Total ram usage:        3 bytes
+   281 ;; Hardware stack levels required when called:    2
+   282 ;; This function calls:
+   283 ;;		_init_regs
+   284 ;;		_rf_send
+   285 ;; This function is called by:
+   286 ;;		Startup code after reset
+   287 ;; This function uses a non-reentrant model
+   288 ;;
+   289                           
+   290                           
+   291                           ;psect for function _main
+   292  0726                     _main:	
+   293                           
+   294                           ;main.c: 45: init_regs();
+   295                           
+   296                           ;incstack = 0
+   297                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   298  0726  3187  2714  3187   	fcall	_init_regs
+   299  0729                     l33:	
+   300                           ;main.c: 46: while(1)
+   301                           
+   302                           
+   303                           ;main.c: 47: {
+   304                           ;main.c: 49: rf_send('P');
+   305  0729  3050               	movlw	80
+   306  072A  3187  278A  3187   	fcall	_rf_send
+   307                           
+   308                           ;main.c: 50: rf_send('O');
+   309  072D  304F               	movlw	79
+   310  072E  3187  278A  3187   	fcall	_rf_send
+   311                           
+   312                           ;main.c: 51: rf_send('K');
+   313  0731  304B               	movlw	75
+   314  0732  3187  278A  3187   	fcall	_rf_send
+   315                           
+   316                           ;main.c: 52: rf_send('U');
+   317  0735  3055               	movlw	85
+   318  0736  3187  278A  3187   	fcall	_rf_send
+   319                           
+   320                           ;main.c: 53: rf_send('S');
+   321  0739  3053               	movlw	83
+   322  073A  3187  278A  3187   	fcall	_rf_send
+   323                           
+   324                           ;main.c: 54: rf_send('A');
+   325  073D  3041               	movlw	65
+   326  073E  3187  278A  3187   	fcall	_rf_send
+   327                           
+   328                           ;main.c: 55: rf_send('J');
+   329  0741  304A               	movlw	74
+   330  0742  3187  278A  3187   	fcall	_rf_send
+   331                           
+   332                           ;main.c: 56: rf_send(' ');
+   333  0745  3020               	movlw	32
+   334  0746  3187  278A  3187   	fcall	_rf_send
+   335                           
+   336                           ;main.c: 57: rf_send('K');
+   337  0749  304B               	movlw	75
+   338  074A  3187  278A  3187   	fcall	_rf_send
+   339                           
+   340                           ;main.c: 58: rf_send('O');
+   341  074D  304F               	movlw	79
+   342  074E  3187  278A  3187   	fcall	_rf_send
+   343                           
+   344                           ;main.c: 59: rf_send('M');
+   345  0751  304D               	movlw	77
+   346  0752  3187  278A  3187   	fcall	_rf_send
+   347                           
+   348                           ;main.c: 60: rf_send('U');
+   349  0755  3055               	movlw	85
+   350  0756  3187  278A  3187   	fcall	_rf_send
+   351                           
+   352                           ;main.c: 61: rf_send('N');
+   353  0759  304E               	movlw	78
+   354  075A  3187  278A  3187   	fcall	_rf_send
+   355                           
+   356                           ;main.c: 62: rf_send('I');
+   357  075D  3049               	movlw	73
+   358  075E  3187  278A  3187   	fcall	_rf_send
+   359                           
+   360                           ;main.c: 63: rf_send('K');
+   361  0761  304B               	movlw	75
+   362  0762  3187  278A  3187   	fcall	_rf_send
+   363                           
+   364                           ;main.c: 64: rf_send('A');
+   365  0765  3041               	movlw	65
+   366  0766  3187  278A  3187   	fcall	_rf_send
+   367                           
+   368                           ;main.c: 65: rf_send('C');
+   369  0769  3043               	movlw	67
+   370  076A  3187  278A  3187   	fcall	_rf_send
+   371                           
+   372                           ;main.c: 66: rf_send('I');
+   373  076D  3049               	movlw	73
+   374  076E  3187  278A  3187   	fcall	_rf_send
+   375                           
+   376                           ;main.c: 67: rf_send('J');
+   377  0771  304A               	movlw	74
+   378  0772  3187  278A  3187   	fcall	_rf_send
+   379                           
+   380                           ;main.c: 68: rf_send('E');
+   381  0775  3045               	movlw	69
+   382  0776  3187  278A  3187   	fcall	_rf_send
+   383                           
+   384                           ;main.c: 69: rf_send('#');
+   385  0779  3023               	movlw	35
+   386  077A  3187  278A  3187   	fcall	_rf_send
+   387                           
+   388                           ;main.c: 70: _delay((unsigned long)((5000)*(8000000/4000.0)));
+   389  077D  3033               	movlw	51
+   390  077E  00F6               	movwf	??_main+2
+   391  077F  30BC               	movlw	188
+   392  0780  00F5               	movwf	??_main+1
+   393  0781  3010               	movlw	16
+   394  0782  00F4               	movwf	??_main
+   395  0783                     u97:	
+   396  0783  0BF4               	decfsz	??_main,f
+   397  0784  2F83               	goto	u97
+   398  0785  0BF5               	decfsz	??_main+1,f
+   399  0786  2F83               	goto	u97
+   400  0787  0BF6               	decfsz	??_main+2,f
+   401  0788  2F83               	goto	u97
+   402  0789  2F29               	goto	l33
+   403  078A                     __end_of_main:	
+   404                           
+   405                           	psect	text1
+   406  078A                     __ptext1:	
+   407 ;; *************** function _rf_send *****************
+   408 ;; Defined at:
+   409 ;;		line 87 in file "main.c"
+   410 ;; Parameters:    Size  Location     Type
+   411 ;;  podatak         1    wreg     unsigned char 
+   412 ;; Auto vars:     Size  Location     Type
+   413 ;;  podatak         1    2[COMMON] unsigned char 
+   414 ;;  i               1    3[COMMON] unsigned char 
+   415 ;; Return value:  Size  Location     Type
+   416 ;;		None               void
+   417 ;; Registers used:
+   418 ;;		wreg, status,2, status,0
+   419 ;; Tracked objects:
+   420 ;;		On entry : 0/0
+   421 ;;		On exit  : 0/0
+   422 ;;		Unchanged: 0/0
+   423 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12
+   424 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   425 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   426 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   427 ;;      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   428 ;;Total ram usage:        4 bytes
+   429 ;; Hardware stack levels used:    1
+   430 ;; This function calls:
+   431 ;;		Nothing
+   432 ;; This function is called by:
+   433 ;;		_main
+   434 ;; This function uses a non-reentrant model
+   435 ;;
+   436                           
+   437                           
+   438                           ;psect for function _rf_send
+   439  078A                     _rf_send:	
+   440                           
+   441                           ;incstack = 0
+   442                           ; Regs used in _rf_send: [wreg+status,2+status,0]
+   443                           ;rf_send@podatak stored from wreg
+   444  078A  00F2               	movwf	rf_send@podatak
+   445                           
+   446                           ;main.c: 89: char i;
+   447                           ;main.c: 90: for (i = 0; i < 5; i++)
+   448  078B  01F3               	clrf	rf_send@i
+   449  078C  3005               	movlw	5
+   450  078D  0273               	subwf	rf_send@i,w
+   451  078E  1803               	btfsc	3,0
+   452  078F  2FAA               	goto	l43
+   453  0790                     l42:	
+   454                           
+   455                           ;main.c: 91: {
+   456                           ;main.c: 92: RC2 = 1;
+   457  0790  0020               	movlb	0	; select bank0
+   458  0791  150E               	bsf	14,2	;volatile
+   459                           
+   460                           ;main.c: 93: _delay((unsigned long)((500)*(8000000/4000000.0)));
+   461  0792  30F9               	movlw	249
+   462  0793  00F0               	movwf	??_rf_send
+   463  0794                     u107:	
+   464  0794  0000               	nop
+   465  0795  0BF0               	decfsz	??_rf_send,f
+   466  0796  2F94               	goto	u107
+   467  0797  3200               	nop2	;nop
+   468  0798  0000               	nop
+   469                           
+   470                           ;main.c: 94: RC2 = 0;
+   471  0799  0020               	movlb	0	; select bank0
+   472  079A  110E               	bcf	14,2	;volatile
+   473                           
+   474                           ;main.c: 95: _delay((unsigned long)((500)*(8000000/4000000.0)));
+   475  079B  30F9               	movlw	249
+   476  079C  00F0               	movwf	??_rf_send
+   477  079D                     u117:	
+   478  079D  0000               	nop
+   479  079E  0BF0               	decfsz	??_rf_send,f
+   480  079F  2F9D               	goto	u117
+   481  07A0  3200               	nop2	;nop
+   482  07A1  0000               	nop
+   483  07A2  3001               	movlw	1
+   484  07A3  00F0               	movwf	??_rf_send
+   485  07A4  0870               	movf	??_rf_send,w
+   486  07A5  07F3               	addwf	rf_send@i,f
+   487  07A6  3005               	movlw	5
+   488  07A7  0273               	subwf	rf_send@i,w
+   489  07A8  1C03               	skipc
+   490  07A9  2F90               	goto	l42
+   491  07AA                     l43:	
+   492                           
+   493                           ;main.c: 96: }
+   494                           ;main.c: 98: RC2 = 1;
+   495  07AA  0020               	movlb	0	; select bank0
+   496  07AB  150E               	bsf	14,2	;volatile
+   497                           
+   498                           ;main.c: 99: _delay((unsigned long)((3000)*(8000000/4000000.0)));
+   499  07AC  3008               	movlw	8
+   500  07AD  00F1               	movwf	??_rf_send+1
+   501  07AE  30C9               	movlw	201
+   502  07AF  00F0               	movwf	??_rf_send
+   503  07B0                     u127:	
+   504  07B0  0BF0               	decfsz	??_rf_send,f
+   505  07B1  2FB0               	goto	u127
+   506  07B2  0BF1               	decfsz	??_rf_send+1,f
+   507  07B3  2FB0               	goto	u127
+   508  07B4  3200               	nop2
+   509                           
+   510                           ;main.c: 100: RC2 = 0;
+   511  07B5  0020               	movlb	0	; select bank0
+   512  07B6  110E               	bcf	14,2	;volatile
+   513                           
+   514                           ;main.c: 101: _delay((unsigned long)((500)*(8000000/4000000.0)));
+   515  07B7  30F9               	movlw	249
+   516  07B8  00F0               	movwf	??_rf_send
+   517  07B9                     u137:	
+   518  07B9  0000               	nop
+   519  07BA  0BF0               	decfsz	??_rf_send,f
+   520  07BB  2FB9               	goto	u137
+   521  07BC  3200               	nop2	;nop
+   522  07BD  0000               	nop
+   523                           
+   524                           ;main.c: 103: for (i = 0; i < 8; i++)
+   525  07BE  01F3               	clrf	rf_send@i
+   526  07BF  3008               	movlw	8
+   527  07C0  0273               	subwf	rf_send@i,w
+   528  07C1  1803               	btfsc	3,0
+   529  07C2  2FF9               	goto	l45
+   530  07C3                     l555:	
+   531                           
+   532                           ;main.c: 104: {
+   533                           ;main.c: 105: if (((podatak) & (1 << (i))))
+   534  07C3  3001               	movlw	1
+   535  07C4  00F0               	movwf	??_rf_send
+   536  07C5  0A73               	incf	rf_send@i,w
+   537  07C6  2FC8               	goto	u44
+   538  07C7                     u45:	
+   539  07C7  35F0               	lslf	??_rf_send,f
+   540  07C8                     u44:	
+   541  07C8  0B89               	decfsz	9,f
+   542  07C9  2FC7               	goto	u45
+   543  07CA  0870               	movf	??_rf_send,w
+   544  07CB  0572               	andwf	rf_send@podatak,w
+   545  07CC  1903               	btfsc	3,2
+   546  07CD  2FD1               	goto	l46
+   547                           
+   548                           ;main.c: 106: RC2 = 1;
+   549  07CE  0020               	movlb	0	; select bank0
+   550  07CF  150E               	bsf	14,2	;volatile
+   551  07D0  2FD3               	goto	l559
+   552  07D1                     l46:	
+   553                           
+   554                           ;main.c: 107: else
+   555                           ;main.c: 108: RC2 = 0;
+   556  07D1  0020               	movlb	0	; select bank0
+   557  07D2  110E               	bcf	14,2	;volatile
+   558  07D3                     l559:	
+   559                           
+   560                           ;main.c: 109: _delay((unsigned long)((500)*(8000000/4000000.0)));
+   561  07D3  30F9               	movlw	249
+   562  07D4  00F0               	movwf	??_rf_send
+   563  07D5                     u147:	
+   564  07D5  0000               	nop
+   565  07D6  0BF0               	decfsz	??_rf_send,f
+   566  07D7  2FD5               	goto	u147
+   567  07D8  3200               	nop2	;nop
+   568  07D9  0000               	nop
+   569                           
+   570                           ;main.c: 111: if (((podatak) & (1 << (i))))
+   571  07DA  3001               	movlw	1
+   572  07DB  00F0               	movwf	??_rf_send
+   573  07DC  0A73               	incf	rf_send@i,w
+   574  07DD  2FDF               	goto	u64
+   575  07DE                     u65:	
+   576  07DE  35F0               	lslf	??_rf_send,f
+   577  07DF                     u64:	
+   578  07DF  0B89               	decfsz	9,f
+   579  07E0  2FDE               	goto	u65
+   580  07E1  0870               	movf	??_rf_send,w
+   581  07E2  0572               	andwf	rf_send@podatak,w
+   582  07E3  1903               	btfsc	3,2
+   583  07E4  2FE8               	goto	l48
+   584                           
+   585                           ;main.c: 112: RC2 = 0;
+   586  07E5  0020               	movlb	0	; select bank0
+   587  07E6  110E               	bcf	14,2	;volatile
+   588  07E7  2FEA               	goto	l565
+   589  07E8                     l48:	
+   590                           
+   591                           ;main.c: 113: else
+   592                           ;main.c: 114: RC2 = 1;
+   593  07E8  0020               	movlb	0	; select bank0
+   594  07E9  150E               	bsf	14,2	;volatile
+   595  07EA                     l565:	
+   596                           
+   597                           ;main.c: 115: _delay((unsigned long)((500)*(8000000/4000000.0)));
+   598  07EA  30F9               	movlw	249
+   599  07EB  00F0               	movwf	??_rf_send
+   600  07EC                     u157:	
+   601  07EC  0000               	nop
+   602  07ED  0BF0               	decfsz	??_rf_send,f
+   603  07EE  2FEC               	goto	u157
+   604  07EF  3200               	nop2	;nop
+   605  07F0  0000               	nop
+   606  07F1  3001               	movlw	1
+   607  07F2  00F0               	movwf	??_rf_send
+   608  07F3  0870               	movf	??_rf_send,w
+   609  07F4  07F3               	addwf	rf_send@i,f
+   610  07F5  3008               	movlw	8
+   611  07F6  0273               	subwf	rf_send@i,w
+   612  07F7  1C03               	skipc
+   613  07F8  2FC3               	goto	l555
+   614  07F9                     l45:	
+   615                           
+   616                           ;main.c: 116: }
+   617                           ;main.c: 118: RC2 = 0;
+   618  07F9  0020               	movlb	0	; select bank0
+   619  07FA  110E               	bcf	14,2	;volatile
+   620  07FB  0008               	return
+   621  07FC                     __end_of_rf_send:	
+   622                           
+   623                           	psect	text2
+   624  0714                     __ptext2:	
+   625 ;; *************** function _init_regs *****************
+   626 ;; Defined at:
+   627 ;;		line 80 in file "main.c"
+   628 ;; Parameters:    Size  Location     Type
+   629 ;;		None
+   630 ;; Auto vars:     Size  Location     Type
+   631 ;;		None
+   632 ;; Return value:  Size  Location     Type
+   633 ;;		None               void
+   634 ;; Registers used:
+   635 ;;		wreg, status,2, status,0, pclath, cstack
+   636 ;; Tracked objects:
+   637 ;;		On entry : 0/0
+   638 ;;		On exit  : 0/0
+   639 ;;		Unchanged: 0/0
+   640 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12
+   641 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   642 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   643 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   644 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   645 ;;Total ram usage:        0 bytes
+   646 ;; Hardware stack levels used:    1
+   647 ;; Hardware stack levels required when called:    1
+   648 ;; This function calls:
+   649 ;;		_init_comm
+   650 ;; This function is called by:
+   651 ;;		_main
+   652 ;; This function uses a non-reentrant model
+   653 ;;
+   654                           
+   655                           
+   656                           ;psect for function _init_regs
+   657  0714                     _init_regs:	
+   658                           
+   659                           ;main.c: 82: TRISCbits.TRISC2 = 0;
+   660                           
+   661                           ;incstack = 0
+   662                           ; Regs used in _init_regs: [wreg+status,2+status,0+pclath+cstack]
+   663  0714  0021               	movlb	1	; select bank1
+   664  0715  110E               	bcf	14,2	;volatile
+   665                           
+   666                           ;main.c: 83: RC2 = 0;
+   667  0716  0020               	movlb	0	; select bank0
+   668  0717  110E               	bcf	14,2	;volatile
+   669                           
+   670                           ;main.c: 84: init_comm();
+   671  0718  3187  271B         	fcall	_init_comm
+   672  071A  0008               	return
+   673  071B                     __end_of_init_regs:	
+   674                           
+   675                           	psect	text3
+   676  071B                     __ptext3:	
+   677 ;; *************** function _init_comm *****************
+   678 ;; Defined at:
+   679 ;;		line 121 in file "main.c"
+   680 ;; Parameters:    Size  Location     Type
+   681 ;;		None
+   682 ;; Auto vars:     Size  Location     Type
+   683 ;;		None
+   684 ;; Return value:  Size  Location     Type
+   685 ;;		None               void
+   686 ;; Registers used:
+   687 ;;		wreg, status,2
+   688 ;; Tracked objects:
+   689 ;;		On entry : 0/0
+   690 ;;		On exit  : 0/0
+   691 ;;		Unchanged: 0/0
+   692 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12
+   693 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   694 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   695 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   696 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   697 ;;Total ram usage:        0 bytes
+   698 ;; Hardware stack levels used:    1
+   699 ;; This function calls:
+   700 ;;		Nothing
+   701 ;; This function is called by:
+   702 ;;		_init_regs
+   703 ;; This function uses a non-reentrant model
+   704 ;;
+   705                           
+   706                           
+   707                           ;psect for function _init_comm
+   708  071B                     _init_comm:	
+   709                           
+   710                           ;main.c: 123: BRG16 = 0;
+   711                           
+   712                           ;incstack = 0
+   713                           ; Regs used in _init_comm: [wreg+status,2]
+   714  071B  0023               	movlb	3	; select bank3
+   715  071C  119F               	bcf	31,3	;volatile
+   716                           
+   717                           ;main.c: 124: BRGH = 0;
+   718  071D  111E               	bcf	30,2	;volatile
+   719                           
+   720                           ;main.c: 125: SPBRGH = 0;
+   721  071E  019C               	clrf	28	;volatile
+   722                           
+   723                           ;main.c: 126: SPBRGL = 12;
+   724  071F  300C               	movlw	12
+   725  0720  009B               	movwf	27	;volatile
+   726                           
+   727                           ;main.c: 128: SYNC = 0;
+   728  0721  121E               	bcf	30,4	;volatile
+   729                           
+   730                           ;main.c: 129: SPEN = 1;
+   731  0722  179D               	bsf	29,7	;volatile
+   732                           
+   733                           ;main.c: 130: TXEN = 1;
+   734  0723  169E               	bsf	30,5	;volatile
+   735                           
+   736                           ;main.c: 131: CREN = 1;
+   737  0724  161D               	bsf	29,4	;volatile
+   738  0725  0008               	return
+   739  0726                     __end_of_init_comm:	
+   740  007E                     btemp	set	126	;btemp
+   741  007E                     wtemp	set	126
+   742  007E                     wtemp0	set	126
+   743  0080                     wtemp1	set	128
+   744  0082                     wtemp2	set	130
+   745  0084                     wtemp3	set	132
+   746  0086                     wtemp4	set	134
+   747  0088                     wtemp5	set	136
+   748  007F                     wtemp6	set	127
+   749  007E                     ttemp	set	126
+   750  007E                     ttemp0	set	126
+   751  0081                     ttemp1	set	129
+   752  0084                     ttemp2	set	132
+   753  0087                     ttemp3	set	135
+   754  007F                     ttemp4	set	127
+   755  007E                     ltemp	set	126
+   756  007E                     ltemp0	set	126
+   757  0082                     ltemp1	set	130
+   758  0086                     ltemp2	set	134
+   759  0080                     ltemp3	set	128
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         1
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      7       8
+    BANK0            80      0       0
+    BANK1            80      0       0
+    BANK2            80      0       0
+    BANK3            80      0       0
+    BANK4            80      0       0
+    BANK5            80      0       0
+    BANK6            80      0       0
+    BANK7            80      0       0
+    BANK8            80      0       0
+    BANK9            80      0       0
+    BANK10           80      0       0
+    BANK11           80      0       0
+    BANK12           48      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    _main->_rf_send
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 3     3      0     120
+                                              4 COMMON     3     3      0
+                          _init_regs
+                            _rf_send
+ ---------------------------------------------------------------------------------
+ (1) _rf_send                                              4     4      0     120
+                                              0 COMMON     4     4      0
+ ---------------------------------------------------------------------------------
+ (1) _init_regs                                            0     0      0       0
+                          _init_comm
+ ---------------------------------------------------------------------------------
+ (2) _init_comm                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _init_regs
+     _init_comm
+   _rf_send
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             3F0      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITCOMMON            E      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               E      7       8       2       57.1%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR2              0      0       0       3        0.0%
+SFR2                 0      0       0       3        0.0%
+STACK                0      0       0       3        0.0%
+BITBANK0            50      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+BANK0               50      0       0       5        0.0%
+BITSFR4              0      0       0       5        0.0%
+SFR4                 0      0       0       5        0.0%
+BITBANK1            50      0       0       6        0.0%
+BITSFR5              0      0       0       6        0.0%
+SFR5                 0      0       0       6        0.0%
+BANK1               50      0       0       7        0.0%
+BITSFR6              0      0       0       7        0.0%
+SFR6                 0      0       0       7        0.0%
+BITBANK2            50      0       0       8        0.0%
+BITSFR7              0      0       0       8        0.0%
+SFR7                 0      0       0       8        0.0%
+BANK2               50      0       0       9        0.0%
+BITSFR8              0      0       0       9        0.0%
+SFR8                 0      0       0       9        0.0%
+BITBANK3            50      0       0      10        0.0%
+BITSFR9              0      0       0      10        0.0%
+SFR9                 0      0       0      10        0.0%
+BANK3               50      0       0      11        0.0%
+BITSFR10             0      0       0      11        0.0%
+SFR10                0      0       0      11        0.0%
+BITBANK4            50      0       0      12        0.0%
+BITSFR11             0      0       0      12        0.0%
+SFR11                0      0       0      12        0.0%
+BANK4               50      0       0      13        0.0%
+BITSFR12             0      0       0      13        0.0%
+SFR12                0      0       0      13        0.0%
+BITBANK5            50      0       0      14        0.0%
+BITSFR13             0      0       0      14        0.0%
+SFR13                0      0       0      14        0.0%
+BANK5               50      0       0      15        0.0%
+BITSFR14             0      0       0      15        0.0%
+SFR14                0      0       0      15        0.0%
+BITBANK6            50      0       0      16        0.0%
+BITSFR15             0      0       0      16        0.0%
+SFR15                0      0       0      16        0.0%
+BANK6               50      0       0      17        0.0%
+BITSFR16             0      0       0      17        0.0%
+SFR16                0      0       0      17        0.0%
+BITBANK7            50      0       0      18        0.0%
+BITSFR17             0      0       0      18        0.0%
+SFR17                0      0       0      18        0.0%
+BANK7               50      0       0      19        0.0%
+BITSFR18             0      0       0      19        0.0%
+SFR18                0      0       0      19        0.0%
+BITSFR19             0      0       0      20        0.0%
+SFR19                0      0       0      20        0.0%
+ABS                  0      0       8      20        0.0%
+BITBANK8            50      0       0      21        0.0%
+BITSFR20             0      0       0      21        0.0%
+SFR20                0      0       0      21        0.0%
+BANK8               50      0       0      22        0.0%
+BITSFR21             0      0       0      22        0.0%
+SFR21                0      0       0      22        0.0%
+BITBANK9            50      0       0      23        0.0%
+BITSFR22             0      0       0      23        0.0%
+SFR22                0      0       0      23        0.0%
+BANK9               50      0       0      24        0.0%
+BITSFR23             0      0       0      24        0.0%
+SFR23                0      0       0      24        0.0%
+BITBANK10           50      0       0      25        0.0%
+BITSFR24             0      0       0      25        0.0%
+SFR24                0      0       0      25        0.0%
+BANK10              50      0       0      26        0.0%
+BITSFR25             0      0       0      26        0.0%
+SFR25                0      0       0      26        0.0%
+BITBANK11           50      0       0      27        0.0%
+BITSFR26             0      0       0      27        0.0%
+SFR26                0      0       0      27        0.0%
+BANK11              50      0       0      28        0.0%
+BITSFR27             0      0       0      28        0.0%
+SFR27                0      0       0      28        0.0%
+BITBANK12           30      0       0      29        0.0%
+BITSFR28             0      0       0      29        0.0%
+SFR28                0      0       0      29        0.0%
+BANK12              30      0       0      30        0.0%
+BITSFR29             0      0       0      30        0.0%
+SFR29                0      0       0      30        0.0%
+BITSFR30             0      0       0      31        0.0%
+SFR30                0      0       0      31        0.0%
+DATA                 0      0       8      31        0.0%
+BITSFR31             0      0       0      32        0.0%
+SFR31                0      0       0      32        0.0%
+
+
+Microchip Technology PIC Macro Assembler V1.35 build -356382666 
+Symbol Table                                                                                   Sun Feb 21 13:40:22 2016
+
+            __CFG_CP$OFF 0000                       l33 0729                       l42 0790  
+                     l43 07AA                       l45 07F9                       l46 07D1  
+                     l48 07E8                       u44 07C8                       u45 07C7  
+                     u64 07DF                       u65 07DE                       u97 0783  
+                    l555 07C3                      l565 07EA                      l559 07D3  
+                    _RC2 0072                      u107 0794                      u117 079D  
+                    u127 07B0                      u137 07B9                      u147 07D5  
+                    u157 07EC             __CFG_CPD$OFF 0000             __CFG_BORV$LO 0000  
+                    wreg 0009             __CFG_FOSC$HS 0000             __CFG_LVP$OFF 0000  
+                   _BRGH 0CF2                     _CREN 0CEC                     _SPEN 0CEF  
+                   _TXEN 0CF5                     _SYNC 0CF4             __CFG_WRT$OFF 0000  
+                   _main 0726                     btemp 007E                     ltemp 007E  
+                   start 0002                     ttemp 007E                     wtemp 007E  
+          __CFG_IESO$OFF 0000            __CFG_MCLRE$ON 0000                    ?_main 0070  
+                  _BRG16 0CFB            __CFG_WDTE$OFF 0000           __CFG_FCMEN$OFF 0000  
+        __end_of_rf_send 07FC           __CFG_BOREN$OFF 0000                    ltemp0 007E  
+                  ltemp1 0082                    ltemp2 0086                    ltemp3 0080  
+                  ttemp0 007E                    ttemp1 0081                    ttemp2 0084  
+                  ttemp3 0087                    ttemp4 007F                    status 0003  
+                  wtemp0 007E                    wtemp1 0080                    wtemp2 0082  
+                  wtemp3 0084                    wtemp4 0086                    wtemp5 0088  
+                  wtemp6 007F          __initialization 07FC             __end_of_main 078A  
+                 ??_main 0074           __CFG_PLLEN$OFF 0000                   _SPBRGH 019C  
+                 _SPBRGL 019B           __CFG_PWRTE$OFF 0000                ??_rf_send 0070  
+__end_of__initialization 07FD           __pcstackCOMMON 0070          __CFG_VCAPEN$OFF 0000  
+     __size_of_init_comm 000B       __size_of_init_regs 0007               __pmaintext 0726  
+        __CFG_STVREN$OFF 0000                  __ptext1 078A                  __ptext2 0714  
+                __ptext3 071B        __end_of_init_comm 0726        __end_of_init_regs 071B  
+                _rf_send 078A                  _podatak 0077     end_of_initialization 07FD  
+         rf_send@podatak 0072                _TRISCbits 008E      start_initialization 07FC  
+            __pbssCOMMON 0077                ___latbits 0003                 ?_rf_send 0070  
+              _init_comm 071B                _init_regs 0714               ?_init_comm 0070  
+             ?_init_regs 0070         __size_of_rf_send 0072            __size_of_main 0064  
+            ??_init_comm 0070              ??_init_regs 0070                 rf_send@i 0073  
+      __CFG_CLKOUTEN$OFF 0000  

@@ -1,0 +1,48 @@
+[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F1939 ]
+[d frameptr 6 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 0 0 ]
+"24
+[v _memcpyee memcpyee `(v  1 e 0 0 ]
+"35 C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\predajnik\pickit_1939.X\main.c
+[v _main main `(v  1 e 0 0 ]
+"41
+[v _init_regs init_regs `(v  1 e 0 0 ]
+"46
+[v _test_led test_led `(v  1 e 0 0 ]
+[s S27 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"1479 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1939.h
+[u S36 . 1 `S27 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES36  1 e 1 @143 ]
+"8412
+[v _RD4 RD4 `VEb  1 e 0 @124 ]
+"35 C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\predajnik\pickit_1939.X\main.c
+[v _main main `(v  1 e 0 0 ]
+{
+"39
+} 0
+"46
+[v _test_led test_led `(v  1 e 0 0 ]
+{
+"55
+} 0
+"41
+[v _init_regs init_regs `(v  1 e 0 0 ]
+{
+"44
+} 0

@@ -1,0 +1,79 @@
+[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F1939 ]
+[d frameptr 6 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 0 0 ]
+"24
+[v _memcpyee memcpyee `(v  1 e 0 0 ]
+"44 C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\predajnik\delay_p.X\main.c
+[v _main main `(v  1 e 0 0 ]
+"80
+[v _init_regs init_regs `(v  1 e 0 0 ]
+"87
+[v _rf_send rf_send `(v  1 e 0 0 ]
+"121
+[v _init_comm init_comm `(v  1 e 0 0 ]
+[s S34 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1418 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1939.h
+[u S43 . 1 `S34 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES43  1 e 1 @142 ]
+"3719
+[v _SPBRGL SPBRGL `VEuc  1 e 1 @411 ]
+"3768
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @412 ]
+"7730
+[v _BRG16 BRG16 `VEb  1 e 0 @3323 ]
+"7732
+[v _BRGH BRGH `VEb  1 e 0 @3314 ]
+"7954
+[v _CREN CREN `VEb  1 e 0 @3308 ]
+"8382
+[v _RC2 RC2 `VEb  1 e 0 @114 ]
+"8698
+[v _SPEN SPEN `VEb  1 e 0 @3311 ]
+"8792
+[v _SYNC SYNC `VEb  1 e 0 @3316 ]
+"9002
+[v _TXEN TXEN `VEb  1 e 0 @3317 ]
+"44 C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\predajnik\delay_p.X\main.c
+[v _main main `(v  1 e 0 0 ]
+{
+"78
+} 0
+"87
+[v _rf_send rf_send `(v  1 e 0 0 ]
+{
+"88
+[v rf_send@podatak podatak `uc  1 a 1 wreg ]
+"89
+[v rf_send@i i `uc  1 a 1 3 ]
+"88
+[v rf_send@podatak podatak `uc  1 a 1 wreg ]
+"90
+[v rf_send@podatak podatak `uc  1 a 1 2 ]
+"119
+} 0
+"80
+[v _init_regs init_regs `(v  1 e 0 0 ]
+{
+"85
+} 0
+"121
+[v _init_comm init_comm `(v  1 e 0 0 ]
+{
+"132
+} 0
