@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 16F877A ]
 [d frameptr 6 ]
-"66 C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
+"66 C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
 [e E1107 . `uc
 CEKANJE 0
 PROZVAN 1
@@ -22,7 +22,7 @@ NIJEPRAZNA 1
 [v _eecpymem eecpymem `(v  1 e 0 0 ]
 "24
 [v _memcpyee memcpyee `(v  1 e 0 0 ]
-"85 C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
+"85 C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
 [v _main main `(v  1 e 0 0 ]
 "168
 [v _prekidna_rutina prekidna_rutina `II(v  1 e 0 0 ]
@@ -192,7 +192,7 @@ NIJEPRAZNA 1
 [v _TOUTPS3 TOUTPS3 `VEb  1 e 0 @150 ]
 "2751
 [v _TXEN TXEN `VEb  1 e 0 @1221 ]
-"53 C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
+"53 C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
 [v _opsegID opsegID `uc  1 e 1 0 ]
 "54
 [v _rf_data rf_data `uc  1 e 1 0 ]

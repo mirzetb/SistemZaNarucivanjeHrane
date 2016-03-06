@@ -11,10 +11,6 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.obj
-reset_vec CODE 0 0 0 3 2
-end_init CODE 0 12 12 3 2
-config CONFIG 0 2007 2007 1 2
 $dist/default/production\pager.X.production.obj
 cinit CODE 0 15 15 19 2
 text1 CODE 0 F7 F7 20 2
@@ -30,6 +26,10 @@ bssBANK0 BANK0 1 36 36 1 1
 idataBANK0 CODE 0 117 117 15 2
 dataBANK0 BANK0 1 20 20 15 1
 bssCOMMON COMMON 1 70 70 8 1
+$C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.obj
+reset_vec CODE 0 0 0 3 2
+end_init CODE 0 12 12 3 2
+config CONFIG 0 2007 2007 1 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -75,156 +75,156 @@ STRING 15B-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\pager.X.production.obj
-15 cinit CODE >376:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-15 cinit CODE >379:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-15 cinit CODE >443:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-16 cinit CODE >444:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-17 cinit CODE >445:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-18 cinit CODE >446:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-19 cinit CODE >447:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-1A cinit CODE >448:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-1B cinit CODE >449:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-1C cinit CODE >450:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-1D cinit CODE >453:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-1E cinit CODE >485:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-1F cinit CODE >486:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-20 cinit CODE >487:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-21 cinit CODE >488:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-22 cinit CODE >489:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-23 cinit CODE >490:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-24 cinit CODE >491:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-25 cinit CODE >492:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-26 cinit CODE >493:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-27 cinit CODE >494:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-2A cinit CODE >500:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-2A cinit CODE >502:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-2B cinit CODE >503:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-4 intentry CODE >168:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-2E text4 CODE >168:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-2E text4 CODE >170:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-31 text4 CODE >173:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-32 text4 CODE >174:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-33 text4 CODE >176:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-34 text4 CODE >177:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-35 text4 CODE >209:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-36 text4 CODE >210:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-39 text4 CODE >229:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-3A text4 CODE >230:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-3D text4 CODE >232:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-3F text4 CODE >233:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-40 text4 CODE >234:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-42 text4 CODE >236:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-46 text4 CODE >237:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-4A text4 CODE >239:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-4B text4 CODE >240:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-4C text4 CODE >241:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-4D text4 CODE >243:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-50 text4 CODE >245:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-51 text4 CODE >246:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-53 text4 CODE >248:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-54 text4 CODE >251:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-55 text4 CODE >252:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-56 text4 CODE >253:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-57 text4 CODE >254:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-58 text4 CODE >255:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-5B text4 CODE >257:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-5C text4 CODE >260:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-5F text4 CODE >261:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-60 text4 CODE >262:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-70 text4 CODE >263:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-7E text4 CODE >264:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-82 text4 CODE >265:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-86 text4 CODE >267:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-87 text4 CODE >268:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-88 text4 CODE >269:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-89 text4 CODE >270:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-8A text4 CODE >271:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-8D text4 CODE >272:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-8E text4 CODE >274:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-9E text4 CODE >276:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-A7 text4 CODE >277:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-A8 text4 CODE >278:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-AC text4 CODE >280:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-B0 text4 CODE >282:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-B0 text4 CODE >283:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-B3 text4 CODE >288:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-B4 text4 CODE >289:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-BC text4 CODE >291:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-BD text4 CODE >294:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-BF text4 CODE >296:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-C0 text4 CODE >297:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-C8 text4 CODE >299:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-C9 text4 CODE >300:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-CD text4 CODE >301:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-D1 text4 CODE >303:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-D4 text4 CODE >304:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-D9 text4 CODE >307:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-DA text4 CODE >308:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-DB text4 CODE >309:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-DB text4 CODE >310:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-DC text4 CODE >311:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-DD text4 CODE >313:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-DE text4 CODE >314:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-E6 text4 CODE >316:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-E7 text4 CODE >317:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-EB text4 CODE >319:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-13D text3 CODE >423:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-13D text3 CODE >425:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-140 text3 CODE >426:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-142 text3 CODE >427:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-143 text3 CODE >428:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-146 text3 CODE >429:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-149 text3 CODE >431:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-14A text3 CODE >432:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-14B text3 CODE >433:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-14C text3 CODE >438:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-14D text2 CODE >413:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-14D text2 CODE >415:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-150 text2 CODE >417:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-151 text2 CODE >418:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-152 text2 CODE >419:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-153 text2 CODE >420:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-154 text2 CODE >421:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-F7 text1 CODE >323:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-F7 text1 CODE >326:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-FA text1 CODE >329:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-FC text1 CODE >332:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-FF text1 CODE >333:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-100 text1 CODE >334:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-101 text1 CODE >335:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-102 text1 CODE >336:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-103 text1 CODE >340:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-106 text1 CODE >341:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-107 text1 CODE >342:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-108 text1 CODE >343:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-109 text1 CODE >344:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-10A text1 CODE >345:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-10B text1 CODE >346:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-10C text1 CODE >348:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-10D text1 CODE >349:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-10E text1 CODE >356:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-113 text1 CODE >357:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-116 text1 CODE >358:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-155 maintext CODE >85:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-155 maintext CODE >86:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-15A maintext CODE >87:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\pager\pager.X\main.c
-12C inittext CODE >459:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-12C inittext CODE >460:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-12D inittext CODE >461:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-12E inittext CODE >462:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-12F inittext CODE >463:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-130 inittext CODE >470:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-130 inittext CODE >471:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-133 inittext CODE >472:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-134 inittext CODE >473:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-135 inittext CODE >474:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-136 inittext CODE >475:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-137 inittext CODE >476:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-138 inittext CODE >477:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-139 inittext CODE >478:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-13A inittext CODE >479:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-13B inittext CODE >480:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
-13C inittext CODE >481:C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.
+15 cinit CODE >376:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+15 cinit CODE >379:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+15 cinit CODE >443:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+16 cinit CODE >444:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+17 cinit CODE >445:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+18 cinit CODE >446:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+19 cinit CODE >447:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+1A cinit CODE >448:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+1B cinit CODE >449:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+1C cinit CODE >450:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+1D cinit CODE >453:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+1E cinit CODE >485:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+1F cinit CODE >486:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+20 cinit CODE >487:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+21 cinit CODE >488:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+22 cinit CODE >489:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+23 cinit CODE >490:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+24 cinit CODE >491:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+25 cinit CODE >492:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+26 cinit CODE >493:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+27 cinit CODE >494:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+2A cinit CODE >500:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+2A cinit CODE >502:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+2B cinit CODE >503:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+4 intentry CODE >168:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+2E text4 CODE >168:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+2E text4 CODE >170:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+31 text4 CODE >173:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+32 text4 CODE >174:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+33 text4 CODE >176:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+34 text4 CODE >177:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+35 text4 CODE >209:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+36 text4 CODE >210:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+39 text4 CODE >229:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+3A text4 CODE >230:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+3D text4 CODE >232:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+3F text4 CODE >233:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+40 text4 CODE >234:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+42 text4 CODE >236:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+46 text4 CODE >237:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+4A text4 CODE >239:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+4B text4 CODE >240:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+4C text4 CODE >241:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+4D text4 CODE >243:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+50 text4 CODE >245:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+51 text4 CODE >246:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+53 text4 CODE >248:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+54 text4 CODE >251:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+55 text4 CODE >252:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+56 text4 CODE >253:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+57 text4 CODE >254:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+58 text4 CODE >255:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+5B text4 CODE >257:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+5C text4 CODE >260:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+5F text4 CODE >261:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+60 text4 CODE >262:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+70 text4 CODE >263:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+7E text4 CODE >264:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+82 text4 CODE >265:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+86 text4 CODE >267:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+87 text4 CODE >268:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+88 text4 CODE >269:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+89 text4 CODE >270:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+8A text4 CODE >271:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+8D text4 CODE >272:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+8E text4 CODE >274:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+9E text4 CODE >276:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+A7 text4 CODE >277:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+A8 text4 CODE >278:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+AC text4 CODE >280:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+B0 text4 CODE >282:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+B0 text4 CODE >283:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+B3 text4 CODE >288:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+B4 text4 CODE >289:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+BC text4 CODE >291:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+BD text4 CODE >294:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+BF text4 CODE >296:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+C0 text4 CODE >297:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+C8 text4 CODE >299:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+C9 text4 CODE >300:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+CD text4 CODE >301:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+D1 text4 CODE >303:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+D4 text4 CODE >304:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+D9 text4 CODE >307:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+DA text4 CODE >308:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+DB text4 CODE >309:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+DB text4 CODE >310:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+DC text4 CODE >311:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+DD text4 CODE >313:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+DE text4 CODE >314:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+E6 text4 CODE >316:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+E7 text4 CODE >317:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+EB text4 CODE >319:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+13D text3 CODE >423:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+13D text3 CODE >425:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+140 text3 CODE >426:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+142 text3 CODE >427:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+143 text3 CODE >428:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+146 text3 CODE >429:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+149 text3 CODE >431:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+14A text3 CODE >432:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+14B text3 CODE >433:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+14C text3 CODE >438:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+14D text2 CODE >413:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+14D text2 CODE >415:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+150 text2 CODE >417:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+151 text2 CODE >418:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+152 text2 CODE >419:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+153 text2 CODE >420:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+154 text2 CODE >421:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+F7 text1 CODE >323:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+F7 text1 CODE >326:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+FA text1 CODE >329:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+FC text1 CODE >332:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+FF text1 CODE >333:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+100 text1 CODE >334:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+101 text1 CODE >335:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+102 text1 CODE >336:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+103 text1 CODE >340:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+106 text1 CODE >341:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+107 text1 CODE >342:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+108 text1 CODE >343:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+109 text1 CODE >344:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+10A text1 CODE >345:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+10B text1 CODE >346:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+10C text1 CODE >348:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+10D text1 CODE >349:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+10E text1 CODE >356:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+113 text1 CODE >357:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+116 text1 CODE >358:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+155 maintext CODE >85:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+155 maintext CODE >86:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+15A maintext CODE >87:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager\pager.X\main.c
+12C inittext CODE >459:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+12C inittext CODE >460:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+12D inittext CODE >461:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+12E inittext CODE >462:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+12F inittext CODE >463:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+130 inittext CODE >470:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+130 inittext CODE >471:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+133 inittext CODE >472:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+134 inittext CODE >473:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+135 inittext CODE >474:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+136 inittext CODE >475:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+137 inittext CODE >476:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+138 inittext CODE >477:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+139 inittext CODE >478:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+13A inittext CODE >479:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+13B inittext CODE >480:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
+13C inittext CODE >481:C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -270,13 +270,13 @@ _T0CS 40D 0 ABS 0 - dist/default/production\pager.X.production.obj
 _SYNC 4C4 0 ABS 0 - dist/default/production\pager.X.production.obj
 _TMR0 1 0 ABS 0 - dist/default/production\pager.X.production.obj
 _TXEN 4C5 0 ABS 0 - dist/default/production\pager.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.obj
+___sp 0 0 STACK 2 stack C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.obj
 _init 1EE 0 CODE 0 text1 dist/default/production\pager.X.production.obj
 _loop 72 0 COMMON 1 bssCOMMON dist/default/production\pager.X.production.obj
 _main 2AA 0 CODE 0 maintext dist/default/production\pager.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production\pager.X.production.obj
 ltemp 7E 0 ABS 0 - dist/default/production\pager.X.production.obj
-start 24 0 CODE 0 init C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.obj
+start 24 0 CODE 0 init C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.obj
 ttemp 7E 0 ABS 0 - dist/default/production\pager.X.production.obj
 wtemp 7E 0 ABS 0 - dist/default/production\pager.X.production.obj
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\pager.X.production.obj
@@ -291,12 +291,12 @@ ttemp2 84 0 ABS 0 - dist/default/production\pager.X.production.obj
 ttemp3 87 0 ABS 0 - dist/default/production\pager.X.production.obj
 ttemp4 7F 0 ABS 0 - dist/default/production\pager.X.production.obj
 _init_interrupts 27A 0 CODE 0 text3 dist/default/production\pager.X.production.obj
-intlevel0 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.obj
-intlevel1 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.obj
-intlevel2 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.obj
-intlevel3 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.obj
-intlevel4 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.obj
-intlevel5 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.obj
+intlevel0 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.obj
+intlevel1 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.obj
+intlevel2 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.obj
+intlevel3 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.obj
+intlevel4 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.obj
+intlevel5 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.obj
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\pager.X.production.obj
 wtemp1 80 0 ABS 0 - dist/default/production\pager.X.production.obj
@@ -336,7 +336,7 @@ _TMR2IF 61 0 ABS 0 - dist/default/production\pager.X.production.obj
 _TMR2ON 92 0 ABS 0 - dist/default/production\pager.X.production.obj
 _rf_data 75 0 COMMON 1 bssCOMMON dist/default/production\pager.X.production.obj
 __end_of_init_rf 2AA 0 CODE 0 text2 dist/default/production\pager.X.production.obj
-___int_sp 0 0 STACK 2 stack C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.obj
+___int_sp 0 0 STACK 2 stack C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -399,7 +399,7 @@ saved_w 7E 0 ABS 0 - dist/default/production\pager.X.production.obj
 __size_of_prekidna_rutina 0 0 ABS 0 - dist/default/production\pager.X.production.obj
 __HnvBANK0 0 0 ABS 0 nvBANK0 -
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.obj
 __pdataBANK0 20 0 BANK0 1 dataBANK0 dist/default/production\pager.X.production.obj
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 _opsegID 73 0 COMMON 1 bssCOMMON dist/default/production\pager.X.production.obj
@@ -411,8 +411,8 @@ _prijem 74 0 COMMON 1 bssCOMMON dist/default/production\pager.X.production.obj
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\pager.X.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\pager.X.production.obj
 __Hinittext 0 0 ABS 0 inittext -
-stackhi 0 0 ABS 0 - C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.obj
-stacklo 0 0 ABS 0 - C:\Users\MIRZET~1\AppData\Local\Temp\sc6o.obj
+stackhi 0 0 ABS 0 - C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.obj
+stacklo 0 0 ABS 0 - C:\Users\MIRZET~1\AppData\Local\Temp\s8dk.obj
 _visoko 77 0 COMMON 1 bssCOMMON dist/default/production\pager.X.production.obj
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\pager.X.production.obj
 __Lspace_0 0 0 ABS 0 - -

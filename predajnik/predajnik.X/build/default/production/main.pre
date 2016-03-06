@@ -4538,7 +4538,7 @@ extern __bit __powerdown;
 extern __bit __timeout;
 
 
-# 19 "main.c"
+# 11 "main.c"
 #pragma config FOSC = HS
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -4558,47 +4558,49 @@ extern __bit __timeout;
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 56
-char pageri[10] = {'P', 'A', 'G', 'E', 'R', 'I', '.', '.', '.', '#'};
+# 48
 char t = 0;
-char slanje = 1;
-char i = 0;
 char pod = 'A';
 
-void init();
-void init_pc();
-void init_rfid();
-void init_interrupts();
-
 void interrupt prekidna_rutina();
-
 void rf_send();
-void rf_send2(char podatak);
+void init();
+
 
 void main(void) {
 init();
-while(1)
-{
-
-
-}
-return;
+while(1);
 }
 
 void interrupt prekidna_rutina()
 {
-if (TMR0IE && TMR0IF)
+if(TMR0IE && TMR0IF)
 {
-TMR0IF = 0;
 TMR0 = 6;
-
-if (slanje == 1) rf_send();
-
-
+TMR0IF = 0;
+rf_send();
+}
 }
 
-}
+void init()
+{
+TRISCbits.TRISC2 = 0;
+RC2 = 1;
+TRISDbits.TRISD4 = 0;
+RD4 = 1;
 
+GIE = 1;
+
+
+T0CS = 0;
+T0SE = 1;
+PSA = 0;
+PS2 = 0;
+PS1 = 0;
+PS0 = 1;
+TMR0 = 6;
+TMR0IE = 1;
+}
 
 void rf_send()
 {
@@ -4625,32 +4627,7 @@ if (t == 34)
 RC2 = 0;
 t = 0;
 _delay((unsigned long)((1000)*(8000000/4000.0)));
-pod++;
-if (pod > 'z') pod = 'A';
 
-# 134
+
 }
 }
-
-void init()
-{
-TRISCbits.TRISC2 = 0;
-RC2 = 1;
-
-init_interrupts();
-}
-
-void init_interrupts()
-{
-GIE = 1;
-
-
-T0CS = 0;
-T0SE = 1;
-PSA = 0;
-PS2 = 0;
-PS1 = 0;
-PS0 = 1;
-TMR0IE = 1;
-}
-

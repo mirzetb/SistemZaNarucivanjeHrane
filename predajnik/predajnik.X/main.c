@@ -1,20 +1,12 @@
 /*
- * Embedded solutions and SHIT - Software & hardware integration and testing
- * Elektrotehnicki fakultet Sarajevo
- * Odsjek za automatiku i elektroniku
- * Praktikum automatike
- * 
- * Projektni zadatak: Sistem za narucivanje hrane u restoranu
- * File:    Predajnik main.c
- * Authors: Almir Besic
- *          Mirzet Brkic
- *          Semir Berkovic
+ * File:   main.c
+ * Author: mirzet brkic
+ *
+ * Created on February 26, 2016, 1:41 PM
  */
 
-// PIC16F19393
 
 #include <xc.h>
-
 // CONFIG1
 #pragma config FOSC = HS        // Oscillator Selection (HS Oscillator, High-speed crystal/resonator connected between OSC1 and OSC2 pins)
 #pragma config WDTE = OFF       // Watchdog Timer Enable (WDT disabled)
@@ -53,46 +45,48 @@
 #define SCK RC3     // SCK pin RFID modula
 #define SDA RD2     // SDA pin RFID modula
 
-char pageri[10] = {'P', 'A', 'G', 'E', 'R', 'I', '.', '.', '.', '#'};
 char t = 0;
-char slanje = 1;
-char i = 0;
 char pod = 'A';
 
-void init();
-void init_pc();
-void init_rfid();
-void init_interrupts();
-
 void interrupt prekidna_rutina();
-//void rf_send(char podatak);
 void rf_send();
-void rf_send2(char podatak);
+void init();
+
 
 void main(void) {
     init();
-    while(1)
-    {
-       // rf_send2('O');
-        //__delay_ms(1000);
-    }
-    return;
+    while(1);
 }
 
 void interrupt prekidna_rutina()
 {
-    if (TMR0IE && TMR0IF)
+    if(TMR0IE && TMR0IF)
     {
-        TMR0IF = 0;
         TMR0 = 6;
-        
-        if (slanje == 1) rf_send();
-        
-        
+        TMR0IF = 0;
+        rf_send();
     }
-
 }
 
+void init()
+{
+    TRISCbits.TRISC2 = 0;   // RC2 je izlazni [Data pin RF predajnika]
+    DATA = 1;
+    TRISDbits.TRISD4 = 0;
+    RD4 = 1;
+    
+    GIE = 1;
+    
+    // TMR0
+    T0CS = 0;
+    T0SE = 1;
+    PSA = 0; // PRESCALER 1:4
+    PS2 = 0;
+    PS1 = 0;
+    PS0 = 1;
+    TMR0 = 6;
+    TMR0IE = 1;
+}
 
 void rf_send()
 {
@@ -119,98 +113,7 @@ void rf_send()
         DATA = 0;
         t = 0;
         __delay_ms(1000);
-        pod++;
-        if (pod > 'z') pod = 'A';
-        /*
-        i++;
-        if (i == 10) 
-        {
-            i = 0;
-            GIE = 0;
-            __delay_ms(5000);
-            GIE = 1;
-            TMR0IF = 0;
-        }*/
+        //pod++;
+        //if (pod > 'z') pod = 'A';
     }
 }
-
-void init()
-{
-    TRISCbits.TRISC2 = 0;   // RC2 je izlazni [Data pin RF predajnika]
-    DATA = 1;
-    
-    init_interrupts();
-}
-
-void init_interrupts()
-{
-    GIE = 1;
-    
-    // TMR0
-    T0CS = 0;
-    T0SE = 1;
-    PSA = 0; // PRESCALER 1:4
-    PS2 = 0;
-    PS1 = 0;
-    PS0 = 1;
-    TMR0IE = 1;
-}
-
-/*
-void rf_send(char podatak)
-{
-    char i;
-    for (i = 0; i < 5; i++)
-    {
-        DATA = 1;
-        __delay_us(500);
-        DATA = 0;
-        __delay_us(500);
-    }
-    
-    DATA = 1;
-    __delay_us(3000);
-    DATA = 0;
-    __delay_us(1000);
-    
-    for (i = 0; i < 8; i++)
-    {
-        if (testBit(podatak, i))
-            DATA = 1;
-        else
-            DATA = 0;
-        __delay_us(500);
-        
-        if (testBit(podatak, i))
-            DATA = 0;
-        else
-            DATA = 1;
-        __delay_us(500);
-    }
-
-    DATA = 0;
-}*/
-
-/*
-void rf_send2(char podatak)
-{
-    DATA = 0;
-    __delay_us(5750);
-    
-     for (i = 0; i < 8; i++)
-    {
-        if (testBit(podatak, i))
-            DATA = 1;
-        else
-            DATA = 0;
-        __delay_us(500);
-        
-        if (testBit(podatak, i))
-            DATA = 0;
-        else
-            DATA = 1;
-        __delay_us(500);
-    }
-    DATA = 1;
-}
- * */
