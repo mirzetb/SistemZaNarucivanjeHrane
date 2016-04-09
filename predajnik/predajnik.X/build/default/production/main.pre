@@ -4566,6 +4566,7 @@ void interrupt prekidna_rutina();
 void rf_send();
 void init();
 void init_serial();
+void init_rfid();
 
 
 void main(void) {
@@ -4574,19 +4575,24 @@ init_serial();
 while(1) {
 if(RCIF) {
 char var = RCREG;
-if(var == 'a') {
-RD4 = 1;
-_delay((unsigned long)((2000)*(8000000/4000.0)));
-}
-else if (var == 'b') {
-RD4 = 1;
-_delay((unsigned long)((5000)*(8000000/4000.0)));
-}
+if(var == '#') {
 
-}
+TXREG = '*';
+_delay((unsigned long)((50)*(8000000/4000.0)));
+TXREG = 'A';
+_delay((unsigned long)((50)*(8000000/4000.0)));
+} else if(var == '*') {
+while(!RCIF);
+char var2 = RCREG;
+if(var2 == 'A') RD4 = 1;
+_delay((unsigned long)((10000)*(8000000/4000.0)));
 RD4 = 0;
-
-
+TXREG = '#';
+_delay((unsigned long)((50)*(8000000/4000.0)));
+TXREG = 'A';
+_delay((unsigned long)((50)*(8000000/4000.0)));
+}
+}
 }
 }
 
@@ -4659,4 +4665,8 @@ SPBRGL = 51;
 CREN = 1;
 SREN = 1;
 TXEN = 1;
+}
+
+void init_rfid() {
+SSPEN = 1;
 }

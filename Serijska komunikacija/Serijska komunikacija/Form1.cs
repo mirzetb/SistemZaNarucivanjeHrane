@@ -73,11 +73,17 @@ namespace Serijska_komunikacija
 
         private void PrikaziPodatak(object sender, EventArgs e)
         {
+            MessageBox.Show(serialPort.ReadExisting());
             txtPodatak.Text = serialPort.ReadExisting();
+
+            serialPort.Write("*");
+            serialPort.Write("A");
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
+            serialPort.Write("#");
+            /*
             if (txtPodatak.Text == "")
             {
                 MessageBox.Show("Pager nije detektovan", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -94,7 +100,7 @@ namespace Serijska_komunikacija
                 txtPodatak.ResetText();
                 cBNarudzba.Text = "";
                 MessageBox.Show("Naručivanje uspješno obavljeno", "Poruka", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            }*/
         }
 
         private void txtPodatak_TextChanged(object sender, EventArgs e)

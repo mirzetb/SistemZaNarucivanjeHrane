@@ -8,13 +8,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RCIF `Vb ~T0 @X0 0 e@141 ]
 "3666
 [v _RCREG `Vuc ~T0 @X0 0 e@409 ]
-"8412
-[v _RD4 `Vb ~T0 @X0 0 e@124 ]
+"3685
+[v _TXREG `Vuc ~T0 @X0 0 e@410 ]
 [v F3483 `(v ~T0 @X0 1 tf1`ul ]
 "150 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic.h
 [v __delay `JF3483 ~T0 @X0 0 e ]
 [p i __delay ]
-"8868 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1939.h
+"8412 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1939.h
+[v _RD4 `Vb ~T0 @X0 0 e@124 ]
+"8868
 [v _TMR0IE `Vb ~T0 @X0 0 e@93 ]
 "8870
 [v _TMR0IF `Vb ~T0 @X0 0 e@90 ]
@@ -70,6 +72,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SREN `Vb ~T0 @X0 0 e@3309 ]
 "9002
 [v _TXEN `Vb ~T0 @X0 0 e@3317 ]
+"8738
+[v _SSPEN `Vb ~T0 @X0 0 e@4269 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3388,299 +3392,342 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 52: void rf_send();
 [; ;main.c: 53: void init();
 [; ;main.c: 54: void init_serial();
-"57
+[; ;main.c: 55: void init_rfid();
+"58
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 57: void main(void) {
+[; ;main.c: 58: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 58: init();
-"58
-[e ( _init ..  ]
-[; ;main.c: 59: init_serial();
+[; ;main.c: 59: init();
 "59
-[e ( _init_serial ..  ]
-[; ;main.c: 60: while(1) {
+[e ( _init ..  ]
+[; ;main.c: 60: init_serial();
 "60
+[e ( _init_serial ..  ]
+[; ;main.c: 61: while(1) {
+"61
 [e :U 375 ]
 {
-[; ;main.c: 61: if(RCIF) {
-"61
+[; ;main.c: 62: if(RCIF) {
+"62
 [e $ ! _RCIF 377  ]
 {
-"62
-[v _var `uc ~T0 @X0 1 a ]
-[; ;main.c: 62: char var = RCREG;
-[e = _var _RCREG ]
-[; ;main.c: 63: if(var == 'a') {
 "63
-[e $ ! == -> _var `ui -> 97 `ui 378  ]
-{
-[; ;main.c: 64: RD4 = 1;
+[v _var `uc ~T0 @X0 1 a ]
+[; ;main.c: 63: char var = RCREG;
+[e = _var _RCREG ]
+[; ;main.c: 64: if(var == '#') {
 "64
-[e = _RD4 -> -> 1 `i `b ]
-[; ;main.c: 65: _delay((unsigned long)((2000)*(8000000/4000.0)));
-"65
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"66
-}
-[; ;main.c: 66: }
-[e $U 379  ]
-"67
-[e :U 378 ]
-[; ;main.c: 67: else if (var == 'b') {
-[e $ ! == -> _var `ui -> 98 `ui 380  ]
+[e $ ! == -> _var `ui -> 35 `ui 378  ]
 {
-[; ;main.c: 68: RD4 = 1;
+[; ;main.c: 66: TXREG = '*';
+"66
+[e = _TXREG -> -> 42 `ui `uc ]
+[; ;main.c: 67: _delay((unsigned long)((50)*(8000000/4000.0)));
+"67
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 68: TXREG = 'A';
 "68
-[e = _RD4 -> -> 1 `i `b ]
-[; ;main.c: 69: _delay((unsigned long)((5000)*(8000000/4000.0)));
+[e = _TXREG -> -> 65 `ui `uc ]
+[; ;main.c: 69: _delay((unsigned long)((50)*(8000000/4000.0)));
 "69
-[e ( __delay (1 -> * -> -> 5000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "70
 }
-[e :U 380 ]
+[; ;main.c: 70: } else if(var == '*') {
+[e $U 379  ]
+[e :U 378 ]
+[e $ ! == -> _var `ui -> 42 `ui 380  ]
+{
+[; ;main.c: 71: while(!RCIF);
+"71
+[e $U 381  ]
+[e :U 382 ]
+[e :U 381 ]
+[e $ ! _RCIF 382  ]
+[e :U 383 ]
 "72
+[v _var2 `uc ~T0 @X0 1 a ]
+[; ;main.c: 72: char var2 = RCREG;
+[e = _var2 _RCREG ]
+[; ;main.c: 73: if(var2 == 'A') RD4 = 1;
+"73
+[e $ ! == -> _var2 `ui -> 65 `ui 384  ]
+[e = _RD4 -> -> 1 `i `b ]
+[e :U 384 ]
+[; ;main.c: 74: _delay((unsigned long)((10000)*(8000000/4000.0)));
+"74
+[e ( __delay (1 -> * -> -> 10000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 75: RD4 = 0;
+"75
+[e = _RD4 -> -> 0 `i `b ]
+[; ;main.c: 76: TXREG = '#';
+"76
+[e = _TXREG -> -> 35 `ui `uc ]
+[; ;main.c: 77: _delay((unsigned long)((50)*(8000000/4000.0)));
+"77
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 78: TXREG = 'A';
+"78
+[e = _TXREG -> -> 65 `ui `uc ]
+[; ;main.c: 79: _delay((unsigned long)((50)*(8000000/4000.0)));
+"79
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"80
+}
+[e :U 380 ]
+"81
 [e :U 379 ]
 }
 [e :U 377 ]
-[; ;main.c: 70: }
-[; ;main.c: 72: }
-[; ;main.c: 73: RD4 = 0;
-"73
-[e = _RD4 -> -> 0 `i `b ]
-"76
+"82
 }
 [e :U 374 ]
-"60
+"61
 [e $U 375  ]
 [e :U 376 ]
-[; ;main.c: 76: }
-[; ;main.c: 77: }
-"77
+[; ;main.c: 80: }
+[; ;main.c: 81: }
+[; ;main.c: 82: }
+[; ;main.c: 83: }
+"83
 [e :UE 373 ]
 }
 [v F3490 `(v ~T0 @X0 1 tf ]
-"79
+"85
 [v _prekidna_rutina `IF3490 ~T0 @X0 1 e ]
-"80
+"86
 {
-[; ;main.c: 79: void interrupt prekidna_rutina()
-[; ;main.c: 80: {
+[; ;main.c: 85: void interrupt prekidna_rutina()
+[; ;main.c: 86: {
 [e :U _prekidna_rutina ]
 [f ]
-[; ;main.c: 81: if(TMR0IE && TMR0IF)
-"81
-[e $ ! && _TMR0IE _TMR0IF 382  ]
-[; ;main.c: 82: {
-"82
-{
-[; ;main.c: 83: TMR0 = 6;
-"83
-[e = _TMR0 -> -> 6 `i `uc ]
-[; ;main.c: 84: TMR0IF = 0;
-"84
-[e = _TMR0IF -> -> 0 `i `b ]
-[; ;main.c: 85: rf_send();
-"85
-[e ( _rf_send ..  ]
-"86
-}
-[e :U 382 ]
-[; ;main.c: 86: }
-[; ;main.c: 87: }
+[; ;main.c: 87: if(TMR0IE && TMR0IF)
 "87
-[e :UE 381 ]
-}
-"89
-[v _init `(v ~T0 @X0 1 ef ]
-"90
+[e $ ! && _TMR0IE _TMR0IF 386  ]
+[; ;main.c: 88: {
+"88
 {
-[; ;main.c: 89: void init()
-[; ;main.c: 90: {
+[; ;main.c: 89: TMR0 = 6;
+"89
+[e = _TMR0 -> -> 6 `i `uc ]
+[; ;main.c: 90: TMR0IF = 0;
+"90
+[e = _TMR0IF -> -> 0 `i `b ]
+[; ;main.c: 91: rf_send();
+"91
+[e ( _rf_send ..  ]
+"92
+}
+[e :U 386 ]
+[; ;main.c: 92: }
+[; ;main.c: 93: }
+"93
+[e :UE 385 ]
+}
+"95
+[v _init `(v ~T0 @X0 1 ef ]
+"96
+{
+[; ;main.c: 95: void init()
+[; ;main.c: 96: {
 [e :U _init ]
 [f ]
-[; ;main.c: 91: TRISCbits.TRISC2 = 0;
-"91
+[; ;main.c: 97: TRISCbits.TRISC2 = 0;
+"97
 [e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 92: RC2 = 1;
-"92
-[e = _RC2 -> -> 1 `i `b ]
-[; ;main.c: 93: TRISDbits.TRISD4 = 0;
-"93
-[e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 98: T0CS = 0;
+[; ;main.c: 98: RC2 = 1;
 "98
-[e = _T0CS -> -> 0 `i `b ]
-[; ;main.c: 99: T0SE = 1;
+[e = _RC2 -> -> 1 `i `b ]
+[; ;main.c: 99: TRISDbits.TRISD4 = 0;
 "99
-[e = _T0SE -> -> 1 `i `b ]
-[; ;main.c: 100: PSA = 0;
-"100
-[e = _PSA -> -> 0 `i `b ]
-[; ;main.c: 101: PS2 = 0;
-"101
-[e = _PS2 -> -> 0 `i `b ]
-[; ;main.c: 102: PS1 = 0;
-"102
-[e = _PS1 -> -> 0 `i `b ]
-[; ;main.c: 103: PS0 = 1;
-"103
-[e = _PS0 -> -> 1 `i `b ]
-[; ;main.c: 104: TMR0 = 6;
+[e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 104: T0CS = 0;
 "104
-[e = _TMR0 -> -> 6 `i `uc ]
-[; ;main.c: 105: TMR0IE = 1;
+[e = _T0CS -> -> 0 `i `b ]
+[; ;main.c: 105: T0SE = 1;
 "105
-[e = _TMR0IE -> -> 1 `i `b ]
-[; ;main.c: 106: }
+[e = _T0SE -> -> 1 `i `b ]
+[; ;main.c: 106: PSA = 0;
 "106
-[e :UE 383 ]
-}
+[e = _PSA -> -> 0 `i `b ]
+[; ;main.c: 107: PS2 = 0;
+"107
+[e = _PS2 -> -> 0 `i `b ]
+[; ;main.c: 108: PS1 = 0;
 "108
-[v _rf_send `(v ~T0 @X0 1 ef ]
+[e = _PS1 -> -> 0 `i `b ]
+[; ;main.c: 109: PS0 = 1;
 "109
-{
-[; ;main.c: 108: void rf_send()
-[; ;main.c: 109: {
-[e :U _rf_send ]
-[f ]
-[; ;main.c: 110: if (t == 0) RC2 = 1;
+[e = _PS0 -> -> 1 `i `b ]
+[; ;main.c: 110: TMR0 = 6;
 "110
-[e $ ! == -> _t `i -> 0 `i 385  ]
-[e = _RC2 -> -> 1 `i `b ]
-[e $U 386  ]
+[e = _TMR0 -> -> 6 `i `uc ]
+[; ;main.c: 111: TMR0IE = 1;
 "111
-[e :U 385 ]
-[; ;main.c: 111: else if (t < 10) RC2 = !RC2;
-[e $ ! < -> _t `i -> 10 `i 387  ]
-[e = _RC2 ! _RC2 ]
-[e $U 388  ]
+[e = _TMR0IE -> -> 1 `i `b ]
+[; ;main.c: 112: }
 "112
-[e :U 387 ]
-[; ;main.c: 112: else if (t < 16) RC2 = 1;
-[e $ ! < -> _t `i -> 16 `i 389  ]
-[e = _RC2 -> -> 1 `i `b ]
-[e $U 390  ]
-"113
-[e :U 389 ]
-[; ;main.c: 113: else if (t < 17) RC2 = 0;
-[e $ ! < -> _t `i -> 17 `i 391  ]
-[e = _RC2 -> -> 0 `i `b ]
-[e $U 392  ]
+[e :UE 387 ]
+}
 "114
-[e :U 391 ]
-[; ;main.c: 114: else
-[; ;main.c: 115: {
+[v _rf_send `(v ~T0 @X0 1 ef ]
 "115
 {
-[; ;main.c: 116: if (t%2 == 1)
+[; ;main.c: 114: void rf_send()
+[; ;main.c: 115: {
+[e :U _rf_send ]
+[f ]
+[; ;main.c: 116: if (t == 0) RC2 = 1;
 "116
-[e $ ! == % -> _t `i -> 2 `i -> 1 `i 393  ]
-[; ;main.c: 117: {
+[e $ ! == -> _t `i -> 0 `i 389  ]
+[e = _RC2 -> -> 1 `i `b ]
+[e $U 390  ]
 "117
-{
-[; ;main.c: 118: if (((pod) & (1 << ((t - 17)/2)))) RC2 = 1;
+[e :U 389 ]
+[; ;main.c: 117: else if (t < 10) RC2 = !RC2;
+[e $ ! < -> _t `i -> 10 `i 391  ]
+[e = _RC2 ! _RC2 ]
+[e $U 392  ]
 "118
-[e $ ! != & -> _pod `i << -> 1 `i / - -> _t `i -> 17 `i -> 2 `i -> 0 `i 394  ]
+[e :U 391 ]
+[; ;main.c: 118: else if (t < 16) RC2 = 1;
+[e $ ! < -> _t `i -> 16 `i 393  ]
 [e = _RC2 -> -> 1 `i `b ]
-[e $U 395  ]
+[e $U 394  ]
 "119
-[e :U 394 ]
-[; ;main.c: 119: else RC2 = 0;
-[e = _RC2 -> -> 0 `i `b ]
-[e :U 395 ]
-"120
-}
-[; ;main.c: 120: }
-[e $U 396  ]
-"121
 [e :U 393 ]
-[; ;main.c: 121: else
-[; ;main.c: 122: {
-"122
-{
-[; ;main.c: 123: if (((pod) & (1 << ((t - 17)/2)))) RC2 = 0;
-"123
-[e $ ! != & -> _pod `i << -> 1 `i / - -> _t `i -> 17 `i -> 2 `i -> 0 `i 397  ]
+[; ;main.c: 119: else if (t < 17) RC2 = 0;
+[e $ ! < -> _t `i -> 17 `i 395  ]
 [e = _RC2 -> -> 0 `i `b ]
-[e $U 398  ]
+[e $U 396  ]
+"120
+[e :U 395 ]
+[; ;main.c: 120: else
+[; ;main.c: 121: {
+"121
+{
+[; ;main.c: 122: if (t%2 == 1)
+"122
+[e $ ! == % -> _t `i -> 2 `i -> 1 `i 397  ]
+[; ;main.c: 123: {
+"123
+{
+[; ;main.c: 124: if (((pod) & (1 << ((t - 17)/2)))) RC2 = 1;
 "124
-[e :U 397 ]
-[; ;main.c: 124: else RC2 = 1;
+[e $ ! != & -> _pod `i << -> 1 `i / - -> _t `i -> 17 `i -> 2 `i -> 0 `i 398  ]
 [e = _RC2 -> -> 1 `i `b ]
-[e :U 398 ]
+[e $U 399  ]
 "125
-}
-[e :U 396 ]
+[e :U 398 ]
+[; ;main.c: 125: else RC2 = 0;
+[e = _RC2 -> -> 0 `i `b ]
+[e :U 399 ]
 "126
 }
+[; ;main.c: 126: }
+[e $U 400  ]
+"127
+[e :U 397 ]
+[; ;main.c: 127: else
+[; ;main.c: 128: {
+"128
+{
+[; ;main.c: 129: if (((pod) & (1 << ((t - 17)/2)))) RC2 = 0;
+"129
+[e $ ! != & -> _pod `i << -> 1 `i / - -> _t `i -> 17 `i -> 2 `i -> 0 `i 401  ]
+[e = _RC2 -> -> 0 `i `b ]
+[e $U 402  ]
+"130
+[e :U 401 ]
+[; ;main.c: 130: else RC2 = 1;
+[e = _RC2 -> -> 1 `i `b ]
+[e :U 402 ]
+"131
+}
+[e :U 400 ]
+"132
+}
+[e :U 396 ]
+[e :U 394 ]
 [e :U 392 ]
 [e :U 390 ]
-[e :U 388 ]
-[e :U 386 ]
-[; ;main.c: 125: }
-[; ;main.c: 126: }
-[; ;main.c: 127: t++;
-"127
+[; ;main.c: 131: }
+[; ;main.c: 132: }
+[; ;main.c: 133: t++;
+"133
 [e ++ _t -> -> 1 `i `uc ]
-[; ;main.c: 128: if (t == 34)
-"128
-[e $ ! == -> _t `i -> 34 `i 399  ]
-[; ;main.c: 129: {
-"129
-{
-[; ;main.c: 130: RC2 = 0;
-"130
-[e = _RC2 -> -> 0 `i `b ]
-[; ;main.c: 131: t = 0;
-"131
-[e = _t -> -> 0 `i `uc ]
-[; ;main.c: 132: _delay((unsigned long)((1000)*(8000000/4000.0)));
-"132
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 134: if (t == 34)
+"134
+[e $ ! == -> _t `i -> 34 `i 403  ]
+[; ;main.c: 135: {
 "135
-}
-[e :U 399 ]
-[; ;main.c: 135: }
-[; ;main.c: 136: }
+{
+[; ;main.c: 136: RC2 = 0;
 "136
-[e :UE 384 ]
-}
+[e = _RC2 -> -> 0 `i `b ]
+[; ;main.c: 137: t = 0;
+"137
+[e = _t -> -> 0 `i `uc ]
+[; ;main.c: 138: _delay((unsigned long)((1000)*(8000000/4000.0)));
 "138
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"141
+}
+[e :U 403 ]
+[; ;main.c: 141: }
+[; ;main.c: 142: }
+"142
+[e :UE 388 ]
+}
+"144
 [v _init_serial `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 138: void init_serial() {
+[; ;main.c: 144: void init_serial() {
 [e :U _init_serial ]
 [f ]
-[; ;main.c: 139: SPEN = 1;
-"139
-[e = _SPEN -> -> 1 `i `b ]
-[; ;main.c: 140: SYNC = 0;
-"140
-[e = _SYNC -> -> 0 `i `b ]
-[; ;main.c: 141: BRG16 = 0;
-"141
-[e = _BRG16 -> -> 0 `i `b ]
-[; ;main.c: 142: BRGH = 1;
-"142
-[e = _BRGH -> -> 1 `i `b ]
-[; ;main.c: 143: SPBRGH = 0x00;
-"143
-[e = _SPBRGH -> -> 0 `i `uc ]
-[; ;main.c: 144: SPBRGL = 51;
-"144
-[e = _SPBRGL -> -> 51 `i `uc ]
-[; ;main.c: 145: CREN = 1;
+[; ;main.c: 145: SPEN = 1;
 "145
-[e = _CREN -> -> 1 `i `b ]
-[; ;main.c: 146: SREN = 1;
+[e = _SPEN -> -> 1 `i `b ]
+[; ;main.c: 146: SYNC = 0;
 "146
-[e = _SREN -> -> 1 `i `b ]
-[; ;main.c: 147: TXEN = 1;
+[e = _SYNC -> -> 0 `i `b ]
+[; ;main.c: 147: BRG16 = 0;
 "147
-[e = _TXEN -> -> 1 `i `b ]
-[; ;main.c: 148: }
+[e = _BRG16 -> -> 0 `i `b ]
+[; ;main.c: 148: BRGH = 1;
 "148
-[e :UE 400 ]
+[e = _BRGH -> -> 1 `i `b ]
+[; ;main.c: 149: SPBRGH = 0x00;
+"149
+[e = _SPBRGH -> -> 0 `i `uc ]
+[; ;main.c: 150: SPBRGL = 51;
+"150
+[e = _SPBRGL -> -> 51 `i `uc ]
+[; ;main.c: 151: CREN = 1;
+"151
+[e = _CREN -> -> 1 `i `b ]
+[; ;main.c: 152: SREN = 1;
+"152
+[e = _SREN -> -> 1 `i `b ]
+[; ;main.c: 153: TXEN = 1;
+"153
+[e = _TXEN -> -> 1 `i `b ]
+[; ;main.c: 154: }
+"154
+[e :UE 404 ]
+}
+"156
+[v _init_rfid `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 156: void init_rfid() {
+[e :U _init_rfid ]
+[f ]
+[; ;main.c: 157: SSPEN = 1;
+"157
+[e = _SSPEN -> -> 1 `i `b ]
+[; ;main.c: 158: }
+"158
+[e :UE 405 ]
 }

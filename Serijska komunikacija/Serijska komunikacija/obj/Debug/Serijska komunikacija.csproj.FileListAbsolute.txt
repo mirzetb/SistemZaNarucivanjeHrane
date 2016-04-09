@@ -46,3 +46,12 @@ C:\Users\mirzet brkic\Desktop\Serijska komunikacija\Serijska komunikacija\obj\De
 C:\Users\mirzet brkic\Desktop\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska_komunikacija.Komunikacija.resources
 C:\Users\mirzet brkic\Desktop\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska_komunikacija.Properties.Resources.resources
 C:\Users\mirzet brkic\Desktop\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.csproj.GenerateResource.Cache
+C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\Serijska komunikacija\Serijska komunikacija\bin\Debug\Serijska komunikacija.exe.config
+C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.exe
+C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.pdb
+C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\Serijska komunikacija\Serijska komunikacija\bin\Debug\Serijska komunikacija.exe
+C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\Serijska komunikacija\Serijska komunikacija\bin\Debug\Serijska komunikacija.pdb
+C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.csprojResolveAssemblyReference.cache
+C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska_komunikacija.Komunikacija.resources
+C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska_komunikacija.Properties.Resources.resources
+C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.csproj.GenerateResource.Cache

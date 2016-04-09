@@ -52,27 +52,33 @@ void interrupt prekidna_rutina();
 void rf_send();
 void init();
 void init_serial();
+void init_rfid();
 
 
 void main(void) {
     init();
     init_serial();
     while(1) {
-        if(RCIF) {
+        if(RCIF) { 
             char var = RCREG;
-            if(var == 'a') {
-            RD4 = 1;
-            __delay_ms(2000);
+            if(var == '#') {
+                // dobio kod
+                TXREG = '*';
+                __delay_ms(50);
+                TXREG = 'A';
+                __delay_ms(50);
+            } else if(var == '*') { 
+                while(!RCIF);
+               char var2 = RCREG;
+               if(var2 == 'A') RD4 = 1;
+               __delay_ms(10000);
+               RD4 = 0;
+               TXREG = '#';
+               __delay_ms(50);
+               TXREG = 'A';
+               __delay_ms(50);
             }
-            else if (var == 'b') {
-                RD4 = 1;
-                __delay_ms(5000);
-            }
-           
         }
-        RD4 = 0;
-       // TXREG = 'A';
-        //__delay_ms(500);
     }
 }
 
@@ -145,4 +151,8 @@ void init_serial() {
     CREN = 1;
     SREN = 1;
     TXEN = 1;
+}
+
+void init_rfid() {
+    SSPEN = 1;
 }
