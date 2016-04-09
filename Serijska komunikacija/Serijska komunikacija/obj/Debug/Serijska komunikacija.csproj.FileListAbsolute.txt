@@ -1,0 +1,48 @@
+C:\Users\BABO\Desktop\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\Serijska komunikacija.exe.config
+C:\Users\BABO\Desktop\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\Serijska komunikacija.exe
+C:\Users\BABO\Desktop\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\Serijska komunikacija.pdb
+C:\Users\BABO\Desktop\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.csprojResolveAssemblyReference.cache
+C:\Users\BABO\Desktop\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska_komunikacija.Komunikacija.resources
+C:\Users\BABO\Desktop\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska_komunikacija.Properties.Resources.resources
+C:\Users\BABO\Desktop\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.csproj.GenerateResource.Cache
+C:\Users\BABO\Desktop\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.exe
+C:\Users\BABO\Desktop\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.pdb
+C:\Users\Almir\Desktop\New folder\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\Serijska komunikacija.exe.config
+C:\Users\Almir\Desktop\New folder\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.exe
+C:\Users\Almir\Desktop\New folder\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.pdb
+C:\Users\Almir\Desktop\New folder\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\Serijska komunikacija.exe
+C:\Users\Almir\Desktop\New folder\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\Serijska komunikacija.pdb
+C:\Users\Almir\Desktop\New folder\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\mscorlib.dll
+C:\Users\Almir\Desktop\New folder\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\normidna.nlp
+C:\Users\Almir\Desktop\New folder\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\normnfc.nlp
+C:\Users\Almir\Desktop\New folder\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\normnfd.nlp
+C:\Users\Almir\Desktop\New folder\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\normnfkc.nlp
+C:\Users\Almir\Desktop\New folder\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\normnfkd.nlp
+C:\Users\Almir\Desktop\New folder\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.csprojResolveAssemblyReference.cache
+C:\Users\Almir\Desktop\New folder\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska_komunikacija.Komunikacija.resources
+C:\Users\Almir\Desktop\New folder\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska_komunikacija.Properties.Resources.resources
+C:\Users\Almir\Desktop\New folder\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.csproj.GenerateResource.Cache
+C:\Users\Almir\Desktop\Projekat\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\Serijska komunikacija.exe.config
+C:\Users\Almir\Desktop\Projekat\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.exe
+C:\Users\Almir\Desktop\Projekat\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.pdb
+C:\Users\Almir\Desktop\Projekat\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\Serijska komunikacija.exe
+C:\Users\Almir\Desktop\Projekat\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\Serijska komunikacija.pdb
+C:\Users\Almir\Desktop\Projekat\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\mscorlib.dll
+C:\Users\Almir\Desktop\Projekat\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\normidna.nlp
+C:\Users\Almir\Desktop\Projekat\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\normnfc.nlp
+C:\Users\Almir\Desktop\Projekat\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\normnfd.nlp
+C:\Users\Almir\Desktop\Projekat\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\normnfkc.nlp
+C:\Users\Almir\Desktop\Projekat\Projekat PA\Serijska komunikacija\Serijska komunikacija\bin\Debug\normnfkd.nlp
+C:\Users\Almir\Desktop\Projekat\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.csprojResolveAssemblyReference.cache
+C:\Users\Almir\Desktop\Projekat\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska_komunikacija.Komunikacija.resources
+C:\Users\Almir\Desktop\Projekat\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska_komunikacija.Properties.Resources.resources
+C:\Users\Almir\Desktop\Projekat\Projekat PA\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.csproj.GenerateResource.Cache
+C:\Users\mirzet brkic\Desktop\Serijska komunikacija\Serijska komunikacija\bin\Debug\Serijska komunikacija.exe.config
+C:\Users\mirzet brkic\Desktop\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.exe
+C:\Users\mirzet brkic\Desktop\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.pdb
+C:\Users\mirzet brkic\Desktop\Serijska komunikacija\Serijska komunikacija\bin\Debug\Serijska komunikacija.exe
+C:\Users\mirzet brkic\Desktop\Serijska komunikacija\Serijska komunikacija\bin\Debug\Serijska komunikacija.pdb
+C:\Users\mirzet brkic\Desktop\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.csprojResolveAssemblyReference.cache
+C:\Users\mirzet brkic\Desktop\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska_komunikacija.Komunikacija.resources
+C:\Users\mirzet brkic\Desktop\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska_komunikacija.Properties.Resources.resources
+C:\Users\mirzet brkic\Desktop\Serijska komunikacija\Serijska komunikacija\obj\Debug\Serijska komunikacija.csproj.GenerateResource.Cache

@@ -51,11 +51,29 @@ char pod = 'A';
 void interrupt prekidna_rutina();
 void rf_send();
 void init();
+void init_serial();
 
 
 void main(void) {
     init();
-    while(1);
+    init_serial();
+    while(1) {
+        if(RCIF) {
+            char var = RCREG;
+            if(var == 'a') {
+            RD4 = 1;
+            __delay_ms(2000);
+            }
+            else if (var == 'b') {
+                RD4 = 1;
+                __delay_ms(5000);
+            }
+           
+        }
+        RD4 = 0;
+       // TXREG = 'A';
+        //__delay_ms(500);
+    }
 }
 
 void interrupt prekidna_rutina()
@@ -73,9 +91,8 @@ void init()
     TRISCbits.TRISC2 = 0;   // RC2 je izlazni [Data pin RF predajnika]
     DATA = 1;
     TRISDbits.TRISD4 = 0;
-    RD4 = 1;
     
-    GIE = 1;
+    //GIE = 1;
     
     // TMR0
     T0CS = 0;
@@ -116,4 +133,16 @@ void rf_send()
         //pod++;
         //if (pod > 'z') pod = 'A';
     }
+}
+
+void init_serial() {
+    SPEN = 1;
+    SYNC = 0;
+    BRG16 = 0;
+    BRGH = 1;
+    SPBRGH = 0x00;
+    SPBRGL = 51;
+    CREN = 1;
+    SREN = 1;
+    TXEN = 1;
 }
