@@ -5,9 +5,9 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\predajnik.X.production.sym \
   --cmf=dist/default/production\predajnik.X.production.cmf -z -Q16F1939 \
-  -oC:\Users\MIRZET~1\AppData\Local\Temp\s694.2 \
+  -oC:\Users\MIRZET~1\AppData\Local\Temp\sc2s.2 \
   -Mdist/default/production/predajnik.X.production.map -E1 -ver=XC8 \
-  -ASTACK=02006h-023efh -pstack=STACK -ACODE=00h-07FFhx8 \
+  -ASTACK=02009h-023efh -pstack=STACK -ACODE=00h-07FFhx8 \
   -ASTRCODE=00h-03FFFh -ASTRING=00h-0FFhx64 -ACONST=00h-0FFhx64 \
   -AENTRY=00h-0FFhx64 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
   -ABANK1=0A0h-0EFh -ABANK2=0120h-016Fh -ABANK3=01A0h-01EFh \
@@ -32,7 +32,7 @@ Linker command line:
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
   -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\MIRZET~1\AppData\Local\Temp\s694.obj \
+  C:\Users\MIRZET~1\AppData\Local\Temp\sc2s.obj \
   dist/default/production\predajnik.X.production.obj 
 
 Object code version is 3.11
@@ -42,23 +42,24 @@ Machine type is 16F1939
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\MIRZET~1\AppData\Local\Temp\s694.obj
+C:\Users\MIRZET~1\AppData\Local\Temp\sc2s.obj
                 end_init                             16       16        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2    1000E       0
 dist/default/production\predajnik.X.production.obj
                 cinit                                18       18        8        8       0
                 intentry                              4        4       12        8       0
-                text5                                F4       F4       51        8       0
-                text4                                20       20       6B        8       0
-                text2                               145      145       11        8       0
-                text1                               156      156        C        8       0
-                maintext                             8B       8B       69        8       0
-                cstackBANK0                          20       20        5       20       1
+                text6                               183      183       51        8       0
+                text5                               118      118       6B        8       0
+                text3                               1D4      1D4       11        8       0
+                text2                               1E5      1E5        C        8       0
+                text1                                A8       A8       70        8       0
+                maintext                             20       20       88        8       0
+                cstackBANK0                          20       20        8       20       1
                 cstackCOMMON                         70       70        D       70       1
-                dataBANK0                            25       25        1       20       1
+                dataBANK0                            28       28        1       20       1
                 bssCOMMON                            7D       7D        1       70       1
-                idataBANK0                          162      162        1        8       0
+                idataBANK0                          1F1      1F1        1        8       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -68,12 +69,13 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                18       18        8         0
                 intentry                              4        4       12         0
                 reset_vec                             0        0        2         0
-                text5                                F4       F4       51         0
-                text4                                20       20       6B         0
-                text2                               145      145       11         0
-                text1                               156      156        C         0
-                maintext                             8B       8B       69         0
-                idataBANK0                          162      162        1         0
+                text6                               183      183       51         0
+                text5                               118      118       6B         0
+                text3                               1D4      1D4       11         0
+                text2                               1E5      1E5        C         0
+                text1                                A8       A8       70         0
+                maintext                             20       20       88         0
+                idataBANK0                          1F1      1F1        1         0
 
         CLASS   STRCODE        
 
@@ -88,8 +90,8 @@ TOTAL           Name                               Link     Load   Length     Sp
                 bssCOMMON                            7D       7D        1         1
 
         CLASS   BANK0          
-                cstackBANK0                          20       20        5         1
-                dataBANK0                            25       25        1         1
+                cstackBANK0                          20       20        8         1
+                dataBANK0                            28       28        1         1
 
         CLASS   BANK1          
 
@@ -236,8 +238,8 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000002  000002         0       0  CODE        2
-                intentry                       000004  00015F  000163         8       0  CODE        2
-                cstackBANK0                    000020  000006  000026        20       1  BANK0       1
+                intentry                       000004  0001EE  0001F2         8       0  CODE        2
+                cstackBANK0                    000020  000009  000029        20       1  BANK0       1
                 cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
                 config                         008007  000002  008009     1000E       0  CONFIG      2
 
@@ -245,7 +247,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            00026-0006F              4A           1
+        BANK0            00029-0006F              47           1
         BANK1            000A0-000EF              50           1
         BANK10           00520-0056F              50           1
         BANK11           005A0-005EF              50           1
@@ -260,14 +262,14 @@ UNUSED ADDRESS RANGES
         BANK9            004A0-004EF              50           1
         BIGRAM           02000-023EF             3F0           1
         CODE             00002-00003               2           2
-                         00163-03FFF             800
+                         001F2-03FFF             800
         CONST            00002-00003               2           2
-                         00163-03FFF             100
+                         001F2-03FFF             100
         EEDATA           0F000-0F0FF             100           2
         ENTRY            00002-00003               2           2
-                         00163-03FFF             100
+                         001F2-03FFF             100
         IDLOC            08000-08003               4           2
-        RAM              00026-0006F              4A           1
+        RAM              00029-0006F              47           1
                          000A0-000EF              50
                          00120-0016F              50
                          001A0-001EF              50
@@ -312,11 +314,11 @@ UNUSED ADDRESS RANGES
         SFR7             00380-0039F              20           1
         SFR8             00400-0041F              20           1
         SFR9             00480-0049F              20           1
-        STACK            02006-023EF             3EA           1
+        STACK            02009-023EF             3E7           1
         STRCODE          00002-00003               2           2
-                         00163-03FFF            3E9D
+                         001F2-03FFF            3E0E
         STRING           00002-00003               2           2
-                         00163-03FFF             100
+                         001F2-03FFF             100
 
                                   Symbol Table
 
@@ -329,9 +331,6 @@ _PS1                      (abs)        004A9
 _PS2                      (abs)        004AA
 _PSA                      (abs)        004AB
 _RC2                      (abs)        00072
-_RCIF                     (abs)        0008D
-_RCREG                    (abs)        00199
-_RD4                      (abs)        0007C
 _SPBRGH                   (abs)        0019C
 _SPBRGL                   (abs)        0019B
 _SPEN                     (abs)        00CEF
@@ -346,7 +345,6 @@ _TMR0IF                   (abs)        0005A
 _TRISCbits                (abs)        0008E
 _TRISDbits                (abs)        0008F
 _TXEN                     (abs)        00CF5
-_TXREG                    (abs)        0019A
 __CFG_BOREN$OFF           (abs)        00000
 __CFG_BORV$LO             (abs)        00000
 __CFG_CLKOUTEN$OFF        (abs)        00000
@@ -553,7 +551,7 @@ __S0                      (abs)        08009
 __S1                      (abs)        0007E
 __S2                      (abs)        00000
 __S3                      (abs)        00000
-___awdiv                  text5        000F4
+___awdiv                  text6        00183
 ___awdiv@counter          cstackCOMMON 00075
 ___awdiv@dividend         cstackCOMMON 00072
 ___awdiv@divisor          cstackCOMMON 00070
@@ -562,37 +560,41 @@ ___awdiv@sign             cstackCOMMON 00076
 ___int_sp                 stack        00000
 ___latbits                (abs)        00003
 ___sp                     stack        00000
-__end_of___awdiv          text5        00145
+__end_of___awdiv          text6        001D4
 __end_of__initialization  cinit        0001C
-__end_of_init             text2        00156
-__end_of_init_serial      text1        00162
-__end_of_main             maintext     000F4
+__end_of_init             text3        001E5
+__end_of_init_serial      text2        001F1
+__end_of_main             maintext     000A8
 __end_of_prekidna_rutina  intentry     00016
-__end_of_rf_send          text4        0008B
+__end_of_rf_send          text5        00183
+__end_of_rf_send2         text1        00118
 __initialization          cinit        00018
 __pbssCOMMON              bssCOMMON    0007D
 __pcstackBANK0            cstackBANK0  00020
 __pcstackCOMMON           cstackCOMMON 00070
-__pdataBANK0              dataBANK0    00025
-__pidataBANK0             idataBANK0   00162
+__pdataBANK0              dataBANK0    00028
+__pidataBANK0             idataBANK0   001F1
 __pintentry               intentry     00004
-__pmaintext               maintext     0008B
-__ptext1                  text1        00156
-__ptext2                  text2        00145
-__ptext4                  text4        00020
-__ptext5                  text5        000F4
+__pmaintext               maintext     00020
+__ptext1                  text1        000A8
+__ptext2                  text2        001E5
+__ptext3                  text3        001D4
+__ptext5                  text5        00118
+__ptext6                  text6        00183
 __size_of___awdiv         (abs)        00000
 __size_of_init            (abs)        00000
 __size_of_init_serial     (abs)        00000
 __size_of_main            (abs)        00000
 __size_of_prekidna_rutina (abs)        00000
 __size_of_rf_send         (abs)        00000
-_init                     text2        00145
-_init_serial              text1        00156
-_main                     maintext     0008B
-_pod                      dataBANK0    00025
+__size_of_rf_send2        (abs)        00000
+_init                     text3        001D4
+_init_serial              text2        001E5
+_main                     maintext     00020
+_pod                      dataBANK0    00028
 _prekidna_rutina          intentry     00004
-_rf_send                  text4        00020
+_rf_send                  text5        00118
+_rf_send2                 text1        000A8
 _t                        bssCOMMON    0007D
 btemp                     (abs)        0007E
 end_of_initialization     cinit        0001C
@@ -608,11 +610,12 @@ ltemp0                    (abs)        0007E
 ltemp1                    (abs)        00082
 ltemp2                    (abs)        00086
 ltemp3                    (abs)        00080
-main@var                  cstackBANK0  00024
-main@var2                 cstackBANK0  00023
+main@k                    cstackBANK0  00027
 reset_vec                 reset_vec    00000
+rf_send2@i                cstackBANK0  00023
+rf_send2@podatak          cstackBANK0  00022
 stackhi                   (abs)        023EF
-stacklo                   (abs)        02006
+stacklo                   (abs)        02009
 start                     init         00016
 start_initialization      cinit        00018
 ttemp                     (abs)        0007E
@@ -639,8 +642,7 @@ FUNCTION INFORMATION:
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  var2            1    3[BANK0 ] unsigned char 
-  var             1    4[BANK0 ] unsigned char 
+  k               1    7[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
 		None               void
  Registers used:
@@ -651,22 +653,54 @@ FUNCTION INFORMATION:
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
       Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         0       2       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0
       Temps:          0       3       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         0       5       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        5 bytes
+      Totals:         0       4       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        4 bytes
  Hardware stack levels required when called:    4
  This function calls:
 		_init
 		_init_serial
+		_rf_send2
  This function is called by:
 		Startup code after reset
  This function uses a non-reentrant model
 
 
+ *************** function _rf_send2 *****************
+ Defined at:
+		line 180 in file "main.c"
+ Parameters:    Size  Location     Type
+  podatak         1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  podatak         1    2[BANK0 ] unsigned char 
+  i               1    3[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       2       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       2       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       4       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
  *************** function _init_serial *****************
  Defined at:
-		line 144 in file "main.c"
+		line 164 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -696,7 +730,7 @@ Total ram usage:        0 bytes
 
  *************** function _init *****************
  Defined at:
-		line 95 in file "main.c"
+		line 115 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -726,7 +760,7 @@ Total ram usage:        0 bytes
 
  *************** function _prekidna_rutina *****************
  Defined at:
-		line 85 in file "main.c"
+		line 105 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -756,7 +790,7 @@ Total ram usage:        1 bytes
 
  *************** function _rf_send *****************
  Defined at:
-		line 114 in file "main.c"
+		line 134 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -821,7 +855,7 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c
-		___awdiv       		CODE           	00F4	0000	82
+		___awdiv       		CODE           	0183	0000	82
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c estimated size: 82
 
@@ -831,11 +865,12 @@ shared
 shared estimated size: 5
 
 main.c
-		_init          		CODE           	0145	0000	18
-		_main          		CODE           	008B	0000	106
-		_rf_send       		CODE           	0020	0000	108
-		_init_serial   		CODE           	0156	0000	13
+		_init          		CODE           	01D4	0000	18
+		_main          		CODE           	0020	0000	137
+		_rf_send       		CODE           	0118	0000	108
+		_init_serial   		CODE           	01E5	0000	13
+		_rf_send2      		CODE           	00A8	0000	113
 		_prekidna_rutina		CODE           	0004	0000	19
 
-main.c estimated size: 264
+main.c estimated size: 408
 

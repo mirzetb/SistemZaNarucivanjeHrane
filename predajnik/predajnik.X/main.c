@@ -53,12 +53,32 @@ void rf_send();
 void init();
 void init_serial();
 void init_rfid();
-
+void rf_send2(char podatak);
 
 void main(void) {
     init();
     init_serial();
     while(1) {
+        char k = 0;
+        for(k = 0; k<5; k++)
+        {
+        rf_send2('*');
+        __delay_ms(1000);
+        rf_send2('K');
+        __delay_ms(1000);
+        }
+        
+        __delay_ms(1000);
+        for(k = 0; k<5; k++)
+        {
+        rf_send2('#');
+        __delay_ms(1000);
+        rf_send2('K');
+        __delay_ms(1000);
+        }
+        __delay_ms(1000);
+        
+        /*
         if(RCIF) { 
             char var = RCREG;
             if(var == '#') {
@@ -78,7 +98,7 @@ void main(void) {
                TXREG = 'A';
                __delay_ms(50);
             }
-        }
+        }*/
     }
 }
 
@@ -135,7 +155,7 @@ void rf_send()
     {
         DATA = 0;
         t = 0;
-        __delay_ms(1000);
+        __delay_ms(300);
         //pod++;
         //if (pod > 'z') pod = 'A';
     }
@@ -155,4 +175,38 @@ void init_serial() {
 
 void init_rfid() {
     SSPEN = 1;
+}
+
+void rf_send2(char podatak)
+{
+    char i;
+    for (i = 0; i < 5; i++)
+    {
+        DATA = 1;
+        __delay_us(500);
+        DATA = 0;
+        __delay_us(500);
+    }
+    
+    DATA = 1;
+    __delay_us(3000);
+    DATA = 0;
+    __delay_us(500);
+    
+    for (i = 0; i < 8; i++)
+    {
+        if (testBit(podatak, i))
+            DATA = 1;
+        else
+            DATA = 0;
+        __delay_us(500);
+        
+        if (testBit(podatak, i))
+            DATA = 0;
+        else
+            DATA = 1;
+        __delay_us(500);
+    }
+
+    DATA = 0;
 }

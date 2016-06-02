@@ -45,13 +45,14 @@
 #define GREEN RD5   // G pin RGB dioda
 #define RED RD4     // R pin RGB dioda
 #define BAT RA0     // Napon baterije
+#define BUZZ2 RC3
 
 // Brzina promjene diode
 #define LED_FREQ 10
 
 char pagerID = 'K';
 char opsegID;
-char rf_data;
+char rf_data[2] = {0x00, 0x00};
 
 char melody[] = {'c', 'd', 'f', 'd', 'a', ' ', 'a', 'g', ' ', 'c', 'd', 'f', 'd', 'g', ' ', 'g', 'f', ' '};
 char tempo = 200;
@@ -61,14 +62,16 @@ char loop = 0;
 char visoko = 0;
 char prijem = 0;
 char i = 0;
-char a = 0;
+char kod = 0;
+char kodKraj = 0;
+
+char debug = 1;
 
 enum {CEKANJE, PROZVAN, IZVANOPSEGA} STANJE;
 enum {PRAZNA, NIJEPRAZNA} BATERIJA;
  
 void init();
 void init_analog();
-void init_eeprom();
 void init_buzz();
 void init_batt();
 void init_rf();
@@ -80,12 +83,22 @@ char citaj_eeprom(char adr);
 void play_melody();
 void led_show();
 
-void interrupt prekidna_rutina();
+//void interrupt prekidna_rutina();
+void interrupt prekid();
+char bibici = 0;
 
 void main(void) {
     init();
+    STANJE = PROZVAN;
     while(1)
     {
+         
+        if (STANJE == PROZVAN && bibici == 1) {
+        BUZZ2 = 1;
+        __delay_ms(1);
+        BUZZ2 = 0;
+        __delay_ms(1);
+        }
         /*
         if (STANJE == PROZVAN)
         {
@@ -165,126 +178,95 @@ void main(void) {
     return;
 }
 
+void noPrijem() 
+{
+ TMR0 = 206;
+ if(DATA == 1) 
+{
+    visoko++;
+    if (visoko == 13)
+    {
+      visoko = 0;
+      INTE = 1;
+      INTF = 0;
+
+      INTEDG = 0;
+
+      TMR0IE = 0;
+      prijem = 1;
+    }
+}
+else
+{
+    visoko = 0;
+    TMR0IE = 0;
+    INTE = 1;
+    INTF = 0;
+    INTEDG = 1;
+ }  
+}
+
+void Prijem() 
+{
+TMR0 = 6;
+TMR0IF = 0;
+char k = 0;
+
+if(rf_data[0] == 0x00) k = 0;
+else k = 1;
+
+if(DATA == 1) setBit(rf_data[k], i);
+else clrBit(rf_data[k], i);
+i++;
+if(i == 8)
+{
+    i = 0;
+    prijem = 0;
+    INTE = 1;
+    INTF = 0;
+    INTEDG = 1;
+    TMR0IE = 0;
+
+    if(debug) 
+    {
+        TXREG = rf_data[k];
+    }
+    
+    
+    if (k == 1)
+    {
+        if(rf_data[0] == '*' && rf_data[1] == pagerID) kod++;
+        else kod = 0;
+        
+        if(rf_data[0] == '#' && rf_data[1] == pagerID) kodKraj++;
+        else kodKraj = 0;
+        
+        if(kod == 3 && STANJE == CEKANJE) STANJE = PROZVAN;
+        if(kodKraj == 2 && STANJE == PROZVAN) STANJE = CEKANJE;
+        
+    rf_data[0] = 0x00;
+    rf_data[1] = 0x00;
+    }
+}
+}
+
+/*
 void interrupt prekidna_rutina()
 {
+    // Prva uzlazna ivica -> Omogucavanje TMR0
     if (INTE && INTF)
     {
-        
         INTE = 0;
         INTF = 0;
         
         TMR0IE = 1;
         TMR0IF = 0;
-        
-        /*
-        INTF = 0;
-        char j;
-        for (j = 0; j < 100; j++)
-        {
-            __delay_us(20);
-            if (DATA == 0) return;
-        }
-       while(DATA == 1);
-       
-       INTE = 0;
-       TMR0IE = 1;
-       TMR0IF = 0;
-       TMR0 = 6;
-       */
-        /*
-        for(i = 0; i < 8; i++)
-        {
-            if(DATA == 1)
-                setBit(rf_data, i);
-            else
-                clrBit(rf_data, i);
-            __delay_us(1000);
-        }
-        
-        if (rf_data == pagerID) STANJE = PROZVAN;
-        if (rf_data == '#')
-        TXREG = 0x0A;
-        else
-        TXREG = rf_data; */
     }
     else if (TMR0IE && TMR0IF)
     {
-        /*radi 
         TMR0IF = 0;
-        TMR0 = 6;
-        
-        if (DATA == 1) setBit(rf_data, i);
-        else clrBit(rf_data, i);
-        i++;
-        if(i == 8)
-        {
-            PORTD = 0xF0;
-            i = 0;
-            INTE = 1;
-            TMR0IE = 0;
-            TXREG = rf_data;    
-        }
-        */
-        
-        TMR0IF = 0;
-        if (prijem == 0)
-        {
-            TMR0 = 206;
-            TMR0IF = 0;
-            if(DATA == 1) 
-            {
-                visoko++;
-                if (visoko == 13)
-                {
-                  visoko = 0;
-                  INTE = 1;
-                  INTF = 0;
-                  
-                  INTEDG = 0;
-                  
-                  TMR0IE = 0;
-                  prijem = 1;
-                }
-            }
-            else
-            {
-                visoko = 0;
-                TMR0IE = 0;
-                INTE = 1;
-                INTF = 0;
-                INTEDG = 1;
-            }
-        }
-        else
-        {   
-            TMR0 = 6;
-            TMR0IF = 0;
-            if(DATA == 1) setBit(rf_data, i);
-            else clrBit(rf_data, i);
-            i++;
-            if(i == 8)
-            {
-                i = 0;
-                prijem = 0;
-                INTE = 1;
-                INTF = 0;
-                INTEDG = 1;
-                TMR0IE = 0;
-                
-                if (rf_data >= 'A' && rf_data <= 'Z' || rf_data >= 'a' && rf_data <= 'z')
-                {
-                if (rf_data == 'A') a++;
-                else a = 0;
-                if(a == 5)
-                {
-                    PORTD = 0xF0;
-                }
-                }
-                TXREG = rf_data;
-            }
-            
-         
-        }    
+        if (prijem == 0) noPrijem();
+        else Prijem();    
     }
     else if (TMR2IE && TMR2IF)
     {
@@ -317,7 +299,37 @@ void interrupt prekidna_rutina()
         if (ADRESH > 60) BATERIJA = PRAZNA;
     }
 }
+*/
+char brojacLED = 0;
+char brojacVIB = 0;
 
+void interrupt prekid() {
+    if(TMR2IE && TMR2IF) {
+        TMR2IF = 0;
+        brojacLED++;
+        if(brojacLED == 250) {
+            brojacLED = 0;
+            brojacVIB++;
+        if (STANJE == PROZVAN) {
+            GREEN = 1;
+            BLUE = 0;
+            RED = 0;
+            led_show();
+            if(brojacVIB == 2) 
+            {
+                bibici = 1;
+                VIB = 0;
+            }
+            if(brojacVIB == 5) {
+                VIB = 1;
+                brojacVIB = 0;
+                bibici = 0;
+            }
+            }
+        }
+        }
+    
+}
 // Inicijalizacija stanja, usmjerenja pinova, pocetnog stanja pinova,
 // AD konvertora, EEPROM modula, PWM modula i prekida
 void init()
@@ -334,6 +346,7 @@ void init()
     TRISAbits.TRISA5 = 0;   // RA5 je izlazni [Vibrator]
     TRISCbits.TRISC2 = 0;   // RC2 je izlazni [Buzzer]
     TRISBbits.TRISB0 = 1;   // RB0 je ulazni [Data pin RF prijemnika]
+    TRISCbits.TRISC3 = 0;
     
     // Pocetna stanja pinova
     // Sve diode ugasene, nema boje
@@ -347,14 +360,16 @@ void init()
     
     VIB = 0;    // Vibrator iskljucen
     BUZZ = 0;   // Buzzer iskljucen
-    
+    BUZZ2 = 0;
     // Inicijalizacija modula
     //init_analog();
-    //init_buzz();
+    init_buzz();
     //init_batt();
-    // PR2 = 150;
-    init_rf();
-    init_interrupts();
+    //TMR1IE = 1;
+    //init_rf();
+    //init_interrupts();
+    PEIE = 1;
+    GIE = 1;
 }
 
 //  Inicijalizacija AD konvertora
@@ -378,23 +393,21 @@ void init_analog()
     ADON = 1;   // Ukljuivanje modula
 }
 
-void init_eeprom()
-{
-    // Pager ID, melodije?
-}
-
 // Inicijalizacija TIMER2 modula [Buzzer]
 void init_buzz()
 {
+    /*
     TOUTPS3 = 0;    // Postscale 1:1
     TOUTPS2 = 0;
     TOUTPS1 = 0;
-    TOUTPS0 = 0;
+    TOUTPS0 = 0;*/
     
     T2CKPS1 = 1;    // Prescale 1:16
     T2CKPS0 = 1;
-
+    
+    PR2 = 125;
     TMR2ON = 1;     // Ukljucivanje Timer 2
+    TMR2IE = 1;
 }
 
 // Inicijalizacija TIMER1 modula [Indikacija baterije, izlazka iz opsega]
@@ -490,5 +503,5 @@ void led_show()
         D4 = 1;
         D1 = 0;
     }
-    __delay_ms(1000/LED_FREQ);
+    //__delay_ms(1000/LED_FREQ);
 }

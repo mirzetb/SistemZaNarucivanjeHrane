@@ -4,19 +4,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _init `(v ~T0 @X0 0 ef ]
 "54
 [v _init_serial `(v ~T0 @X0 0 ef ]
-"8400 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1939.h
-[v _RCIF `Vb ~T0 @X0 0 e@141 ]
-"3666
-[v _RCREG `Vuc ~T0 @X0 0 e@409 ]
-"3685
-[v _TXREG `Vuc ~T0 @X0 0 e@410 ]
+"56
+[v _rf_send2 `(v ~T0 @X0 0 ef1`uc ]
 [v F3483 `(v ~T0 @X0 1 tf1`ul ]
 "150 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic.h
 [v __delay `JF3483 ~T0 @X0 0 e ]
 [p i __delay ]
-"8412 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1939.h
-[v _RD4 `Vb ~T0 @X0 0 e@124 ]
-"8868
+"8868 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1939.h
 [v _TMR0IE `Vb ~T0 @X0 0 e@93 ]
 "8870
 [v _TMR0IF `Vb ~T0 @X0 0 e@90 ]
@@ -3393,6 +3387,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 53: void init();
 [; ;main.c: 54: void init_serial();
 [; ;main.c: 55: void init_rfid();
+[; ;main.c: 56: void rf_send2(char podatak);
 "58
 [v _main `(v ~T0 @X0 1 ef ]
 {
@@ -3409,325 +3404,440 @@ Version 3.2 HI-TECH Software Intermediate Code
 "61
 [e :U 375 ]
 {
-[; ;main.c: 62: if(RCIF) {
 "62
-[e $ ! _RCIF 377  ]
-{
+[v _k `uc ~T0 @X0 1 a ]
+[; ;main.c: 62: char k = 0;
+[e = _k -> -> 0 `i `uc ]
+[; ;main.c: 63: for(k = 0; k<5; k++)
 "63
-[v _var `uc ~T0 @X0 1 a ]
-[; ;main.c: 63: char var = RCREG;
-[e = _var _RCREG ]
-[; ;main.c: 64: if(var == '#') {
+{
+[e = _k -> -> 0 `i `uc ]
+[e $ < -> _k `i -> 5 `i 377  ]
+[e $U 378  ]
 "64
-[e $ ! == -> _var `ui -> 35 `ui 378  ]
-{
-[; ;main.c: 66: TXREG = '*';
-"66
-[e = _TXREG -> -> 42 `ui `uc ]
-[; ;main.c: 67: _delay((unsigned long)((50)*(8000000/4000.0)));
-"67
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 68: TXREG = 'A';
-"68
-[e = _TXREG -> -> 65 `ui `uc ]
-[; ;main.c: 69: _delay((unsigned long)((50)*(8000000/4000.0)));
-"69
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"70
-}
-[; ;main.c: 70: } else if(var == '*') {
-[e $U 379  ]
-[e :U 378 ]
-[e $ ! == -> _var `ui -> 42 `ui 380  ]
-{
-[; ;main.c: 71: while(!RCIF);
-"71
-[e $U 381  ]
-[e :U 382 ]
-[e :U 381 ]
-[e $ ! _RCIF 382  ]
-[e :U 383 ]
-"72
-[v _var2 `uc ~T0 @X0 1 a ]
-[; ;main.c: 72: char var2 = RCREG;
-[e = _var2 _RCREG ]
-[; ;main.c: 73: if(var2 == 'A') RD4 = 1;
-"73
-[e $ ! == -> _var2 `ui -> 65 `ui 384  ]
-[e = _RD4 -> -> 1 `i `b ]
-[e :U 384 ]
-[; ;main.c: 74: _delay((unsigned long)((10000)*(8000000/4000.0)));
-"74
-[e ( __delay (1 -> * -> -> 10000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 75: RD4 = 0;
-"75
-[e = _RD4 -> -> 0 `i `b ]
-[; ;main.c: 76: TXREG = '#';
-"76
-[e = _TXREG -> -> 35 `ui `uc ]
-[; ;main.c: 77: _delay((unsigned long)((50)*(8000000/4000.0)));
-"77
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 78: TXREG = 'A';
-"78
-[e = _TXREG -> -> 65 `ui `uc ]
-[; ;main.c: 79: _delay((unsigned long)((50)*(8000000/4000.0)));
-"79
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"80
-}
-[e :U 380 ]
-"81
-[e :U 379 ]
-}
 [e :U 377 ]
-"82
+[; ;main.c: 64: {
+{
+[; ;main.c: 65: rf_send2('*');
+"65
+[e ( _rf_send2 (1 -> -> 42 `ui `uc ]
+[; ;main.c: 66: _delay((unsigned long)((1000)*(8000000/4000.0)));
+"66
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 67: rf_send2('K');
+"67
+[e ( _rf_send2 (1 -> -> 75 `ui `uc ]
+[; ;main.c: 68: _delay((unsigned long)((1000)*(8000000/4000.0)));
+"68
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"69
+}
+"63
+[e ++ _k -> -> 1 `i `uc ]
+[e $ < -> _k `i -> 5 `i 377  ]
+[e :U 378 ]
+"69
+}
+[; ;main.c: 69: }
+[; ;main.c: 71: _delay((unsigned long)((1000)*(8000000/4000.0)));
+"71
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 72: for(k = 0; k<5; k++)
+"72
+{
+[e = _k -> -> 0 `i `uc ]
+[e $ < -> _k `i -> 5 `i 380  ]
+[e $U 381  ]
+"73
+[e :U 380 ]
+[; ;main.c: 73: {
+{
+[; ;main.c: 74: rf_send2('#');
+"74
+[e ( _rf_send2 (1 -> -> 35 `ui `uc ]
+[; ;main.c: 75: _delay((unsigned long)((1000)*(8000000/4000.0)));
+"75
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 76: rf_send2('K');
+"76
+[e ( _rf_send2 (1 -> -> 75 `ui `uc ]
+[; ;main.c: 77: _delay((unsigned long)((1000)*(8000000/4000.0)));
+"77
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"78
+}
+"72
+[e ++ _k -> -> 1 `i `uc ]
+[e $ < -> _k `i -> 5 `i 380  ]
+[e :U 381 ]
+"78
+}
+[; ;main.c: 78: }
+[; ;main.c: 79: _delay((unsigned long)((1000)*(8000000/4000.0)));
+"79
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"102
 }
 [e :U 374 ]
 "61
 [e $U 375  ]
 [e :U 376 ]
-[; ;main.c: 80: }
-[; ;main.c: 81: }
-[; ;main.c: 82: }
-[; ;main.c: 83: }
-"83
+[; ;main.c: 102: }
+[; ;main.c: 103: }
+"103
 [e :UE 373 ]
 }
 [v F3490 `(v ~T0 @X0 1 tf ]
-"85
+"105
 [v _prekidna_rutina `IF3490 ~T0 @X0 1 e ]
-"86
+"106
 {
-[; ;main.c: 85: void interrupt prekidna_rutina()
-[; ;main.c: 86: {
+[; ;main.c: 105: void interrupt prekidna_rutina()
+[; ;main.c: 106: {
 [e :U _prekidna_rutina ]
 [f ]
-[; ;main.c: 87: if(TMR0IE && TMR0IF)
-"87
-[e $ ! && _TMR0IE _TMR0IF 386  ]
-[; ;main.c: 88: {
-"88
+[; ;main.c: 107: if(TMR0IE && TMR0IF)
+"107
+[e $ ! && _TMR0IE _TMR0IF 384  ]
+[; ;main.c: 108: {
+"108
 {
-[; ;main.c: 89: TMR0 = 6;
-"89
+[; ;main.c: 109: TMR0 = 6;
+"109
 [e = _TMR0 -> -> 6 `i `uc ]
-[; ;main.c: 90: TMR0IF = 0;
-"90
+[; ;main.c: 110: TMR0IF = 0;
+"110
 [e = _TMR0IF -> -> 0 `i `b ]
-[; ;main.c: 91: rf_send();
-"91
+[; ;main.c: 111: rf_send();
+"111
 [e ( _rf_send ..  ]
-"92
+"112
 }
-[e :U 386 ]
-[; ;main.c: 92: }
-[; ;main.c: 93: }
-"93
-[e :UE 385 ]
+[e :U 384 ]
+[; ;main.c: 112: }
+[; ;main.c: 113: }
+"113
+[e :UE 383 ]
 }
-"95
+"115
 [v _init `(v ~T0 @X0 1 ef ]
-"96
+"116
 {
-[; ;main.c: 95: void init()
-[; ;main.c: 96: {
+[; ;main.c: 115: void init()
+[; ;main.c: 116: {
 [e :U _init ]
 [f ]
-[; ;main.c: 97: TRISCbits.TRISC2 = 0;
-"97
+[; ;main.c: 117: TRISCbits.TRISC2 = 0;
+"117
 [e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 98: RC2 = 1;
-"98
+[; ;main.c: 118: RC2 = 1;
+"118
 [e = _RC2 -> -> 1 `i `b ]
-[; ;main.c: 99: TRISDbits.TRISD4 = 0;
-"99
+[; ;main.c: 119: TRISDbits.TRISD4 = 0;
+"119
 [e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 104: T0CS = 0;
-"104
+[; ;main.c: 124: T0CS = 0;
+"124
 [e = _T0CS -> -> 0 `i `b ]
-[; ;main.c: 105: T0SE = 1;
-"105
+[; ;main.c: 125: T0SE = 1;
+"125
 [e = _T0SE -> -> 1 `i `b ]
-[; ;main.c: 106: PSA = 0;
-"106
+[; ;main.c: 126: PSA = 0;
+"126
 [e = _PSA -> -> 0 `i `b ]
-[; ;main.c: 107: PS2 = 0;
-"107
+[; ;main.c: 127: PS2 = 0;
+"127
 [e = _PS2 -> -> 0 `i `b ]
-[; ;main.c: 108: PS1 = 0;
-"108
+[; ;main.c: 128: PS1 = 0;
+"128
 [e = _PS1 -> -> 0 `i `b ]
-[; ;main.c: 109: PS0 = 1;
-"109
+[; ;main.c: 129: PS0 = 1;
+"129
 [e = _PS0 -> -> 1 `i `b ]
-[; ;main.c: 110: TMR0 = 6;
-"110
+[; ;main.c: 130: TMR0 = 6;
+"130
 [e = _TMR0 -> -> 6 `i `uc ]
-[; ;main.c: 111: TMR0IE = 1;
-"111
+[; ;main.c: 131: TMR0IE = 1;
+"131
 [e = _TMR0IE -> -> 1 `i `b ]
-[; ;main.c: 112: }
-"112
-[e :UE 387 ]
+[; ;main.c: 132: }
+"132
+[e :UE 385 ]
 }
-"114
+"134
 [v _rf_send `(v ~T0 @X0 1 ef ]
-"115
+"135
 {
-[; ;main.c: 114: void rf_send()
-[; ;main.c: 115: {
+[; ;main.c: 134: void rf_send()
+[; ;main.c: 135: {
 [e :U _rf_send ]
 [f ]
-[; ;main.c: 116: if (t == 0) RC2 = 1;
-"116
-[e $ ! == -> _t `i -> 0 `i 389  ]
+[; ;main.c: 136: if (t == 0) RC2 = 1;
+"136
+[e $ ! == -> _t `i -> 0 `i 387  ]
 [e = _RC2 -> -> 1 `i `b ]
-[e $U 390  ]
-"117
-[e :U 389 ]
-[; ;main.c: 117: else if (t < 10) RC2 = !RC2;
-[e $ ! < -> _t `i -> 10 `i 391  ]
+[e $U 388  ]
+"137
+[e :U 387 ]
+[; ;main.c: 137: else if (t < 10) RC2 = !RC2;
+[e $ ! < -> _t `i -> 10 `i 389  ]
 [e = _RC2 ! _RC2 ]
+[e $U 390  ]
+"138
+[e :U 389 ]
+[; ;main.c: 138: else if (t < 16) RC2 = 1;
+[e $ ! < -> _t `i -> 16 `i 391  ]
+[e = _RC2 -> -> 1 `i `b ]
 [e $U 392  ]
-"118
+"139
 [e :U 391 ]
-[; ;main.c: 118: else if (t < 16) RC2 = 1;
-[e $ ! < -> _t `i -> 16 `i 393  ]
-[e = _RC2 -> -> 1 `i `b ]
+[; ;main.c: 139: else if (t < 17) RC2 = 0;
+[e $ ! < -> _t `i -> 17 `i 393  ]
+[e = _RC2 -> -> 0 `i `b ]
 [e $U 394  ]
-"119
+"140
 [e :U 393 ]
-[; ;main.c: 119: else if (t < 17) RC2 = 0;
-[e $ ! < -> _t `i -> 17 `i 395  ]
-[e = _RC2 -> -> 0 `i `b ]
-[e $U 396  ]
-"120
-[e :U 395 ]
-[; ;main.c: 120: else
-[; ;main.c: 121: {
-"121
+[; ;main.c: 140: else
+[; ;main.c: 141: {
+"141
 {
-[; ;main.c: 122: if (t%2 == 1)
-"122
-[e $ ! == % -> _t `i -> 2 `i -> 1 `i 397  ]
-[; ;main.c: 123: {
-"123
+[; ;main.c: 142: if (t%2 == 1)
+"142
+[e $ ! == % -> _t `i -> 2 `i -> 1 `i 395  ]
+[; ;main.c: 143: {
+"143
 {
-[; ;main.c: 124: if (((pod) & (1 << ((t - 17)/2)))) RC2 = 1;
-"124
-[e $ ! != & -> _pod `i << -> 1 `i / - -> _t `i -> 17 `i -> 2 `i -> 0 `i 398  ]
+[; ;main.c: 144: if (((pod) & (1 << ((t - 17)/2)))) RC2 = 1;
+"144
+[e $ ! != & -> _pod `i << -> 1 `i / - -> _t `i -> 17 `i -> 2 `i -> 0 `i 396  ]
 [e = _RC2 -> -> 1 `i `b ]
-[e $U 399  ]
-"125
-[e :U 398 ]
-[; ;main.c: 125: else RC2 = 0;
-[e = _RC2 -> -> 0 `i `b ]
-[e :U 399 ]
-"126
-}
-[; ;main.c: 126: }
-[e $U 400  ]
-"127
-[e :U 397 ]
-[; ;main.c: 127: else
-[; ;main.c: 128: {
-"128
-{
-[; ;main.c: 129: if (((pod) & (1 << ((t - 17)/2)))) RC2 = 0;
-"129
-[e $ ! != & -> _pod `i << -> 1 `i / - -> _t `i -> 17 `i -> 2 `i -> 0 `i 401  ]
-[e = _RC2 -> -> 0 `i `b ]
-[e $U 402  ]
-"130
-[e :U 401 ]
-[; ;main.c: 130: else RC2 = 1;
-[e = _RC2 -> -> 1 `i `b ]
-[e :U 402 ]
-"131
-}
-[e :U 400 ]
-"132
-}
+[e $U 397  ]
+"145
 [e :U 396 ]
+[; ;main.c: 145: else RC2 = 0;
+[e = _RC2 -> -> 0 `i `b ]
+[e :U 397 ]
+"146
+}
+[; ;main.c: 146: }
+[e $U 398  ]
+"147
+[e :U 395 ]
+[; ;main.c: 147: else
+[; ;main.c: 148: {
+"148
+{
+[; ;main.c: 149: if (((pod) & (1 << ((t - 17)/2)))) RC2 = 0;
+"149
+[e $ ! != & -> _pod `i << -> 1 `i / - -> _t `i -> 17 `i -> 2 `i -> 0 `i 399  ]
+[e = _RC2 -> -> 0 `i `b ]
+[e $U 400  ]
+"150
+[e :U 399 ]
+[; ;main.c: 150: else RC2 = 1;
+[e = _RC2 -> -> 1 `i `b ]
+[e :U 400 ]
+"151
+}
+[e :U 398 ]
+"152
+}
 [e :U 394 ]
 [e :U 392 ]
 [e :U 390 ]
-[; ;main.c: 131: }
-[; ;main.c: 132: }
-[; ;main.c: 133: t++;
-"133
+[e :U 388 ]
+[; ;main.c: 151: }
+[; ;main.c: 152: }
+[; ;main.c: 153: t++;
+"153
 [e ++ _t -> -> 1 `i `uc ]
-[; ;main.c: 134: if (t == 34)
-"134
-[e $ ! == -> _t `i -> 34 `i 403  ]
-[; ;main.c: 135: {
-"135
+[; ;main.c: 154: if (t == 34)
+"154
+[e $ ! == -> _t `i -> 34 `i 401  ]
+[; ;main.c: 155: {
+"155
 {
-[; ;main.c: 136: RC2 = 0;
-"136
+[; ;main.c: 156: RC2 = 0;
+"156
 [e = _RC2 -> -> 0 `i `b ]
-[; ;main.c: 137: t = 0;
-"137
+[; ;main.c: 157: t = 0;
+"157
 [e = _t -> -> 0 `i `uc ]
-[; ;main.c: 138: _delay((unsigned long)((1000)*(8000000/4000.0)));
-"138
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"141
+[; ;main.c: 158: _delay((unsigned long)((300)*(8000000/4000.0)));
+"158
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"161
 }
-[e :U 403 ]
-[; ;main.c: 141: }
-[; ;main.c: 142: }
-"142
-[e :UE 388 ]
+[e :U 401 ]
+[; ;main.c: 161: }
+[; ;main.c: 162: }
+"162
+[e :UE 386 ]
 }
-"144
+"164
 [v _init_serial `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 144: void init_serial() {
+[; ;main.c: 164: void init_serial() {
 [e :U _init_serial ]
 [f ]
-[; ;main.c: 145: SPEN = 1;
-"145
+[; ;main.c: 165: SPEN = 1;
+"165
 [e = _SPEN -> -> 1 `i `b ]
-[; ;main.c: 146: SYNC = 0;
-"146
+[; ;main.c: 166: SYNC = 0;
+"166
 [e = _SYNC -> -> 0 `i `b ]
-[; ;main.c: 147: BRG16 = 0;
-"147
+[; ;main.c: 167: BRG16 = 0;
+"167
 [e = _BRG16 -> -> 0 `i `b ]
-[; ;main.c: 148: BRGH = 1;
-"148
+[; ;main.c: 168: BRGH = 1;
+"168
 [e = _BRGH -> -> 1 `i `b ]
-[; ;main.c: 149: SPBRGH = 0x00;
-"149
+[; ;main.c: 169: SPBRGH = 0x00;
+"169
 [e = _SPBRGH -> -> 0 `i `uc ]
-[; ;main.c: 150: SPBRGL = 51;
-"150
+[; ;main.c: 170: SPBRGL = 51;
+"170
 [e = _SPBRGL -> -> 51 `i `uc ]
-[; ;main.c: 151: CREN = 1;
-"151
+[; ;main.c: 171: CREN = 1;
+"171
 [e = _CREN -> -> 1 `i `b ]
-[; ;main.c: 152: SREN = 1;
-"152
+[; ;main.c: 172: SREN = 1;
+"172
 [e = _SREN -> -> 1 `i `b ]
-[; ;main.c: 153: TXEN = 1;
-"153
+[; ;main.c: 173: TXEN = 1;
+"173
 [e = _TXEN -> -> 1 `i `b ]
-[; ;main.c: 154: }
-"154
-[e :UE 404 ]
+[; ;main.c: 174: }
+"174
+[e :UE 402 ]
 }
-"156
+"176
 [v _init_rfid `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 156: void init_rfid() {
+[; ;main.c: 176: void init_rfid() {
 [e :U _init_rfid ]
 [f ]
-[; ;main.c: 157: SSPEN = 1;
-"157
+[; ;main.c: 177: SSPEN = 1;
+"177
 [e = _SSPEN -> -> 1 `i `b ]
-[; ;main.c: 158: }
-"158
-[e :UE 405 ]
+[; ;main.c: 178: }
+"178
+[e :UE 403 ]
+}
+"180
+[v _rf_send2 `(v ~T0 @X0 1 ef1`uc ]
+"181
+{
+[; ;main.c: 180: void rf_send2(char podatak)
+[; ;main.c: 181: {
+[e :U _rf_send2 ]
+"180
+[v _podatak `uc ~T0 @X0 1 r1 ]
+"181
+[f ]
+"182
+[v _i `uc ~T0 @X0 1 a ]
+[; ;main.c: 182: char i;
+[; ;main.c: 183: for (i = 0; i < 5; i++)
+"183
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 5 `i 405  ]
+[e $U 406  ]
+"184
+[e :U 405 ]
+[; ;main.c: 184: {
+{
+[; ;main.c: 185: RC2 = 1;
+"185
+[e = _RC2 -> -> 1 `i `b ]
+[; ;main.c: 186: _delay((unsigned long)((500)*(8000000/4000000.0)));
+"186
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;main.c: 187: RC2 = 0;
+"187
+[e = _RC2 -> -> 0 `i `b ]
+[; ;main.c: 188: _delay((unsigned long)((500)*(8000000/4000000.0)));
+"188
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"189
+}
+"183
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 5 `i 405  ]
+[e :U 406 ]
+"189
+}
+[; ;main.c: 189: }
+[; ;main.c: 191: RC2 = 1;
+"191
+[e = _RC2 -> -> 1 `i `b ]
+[; ;main.c: 192: _delay((unsigned long)((3000)*(8000000/4000000.0)));
+"192
+[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;main.c: 193: RC2 = 0;
+"193
+[e = _RC2 -> -> 0 `i `b ]
+[; ;main.c: 194: _delay((unsigned long)((500)*(8000000/4000000.0)));
+"194
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;main.c: 196: for (i = 0; i < 8; i++)
+"196
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 408  ]
+[e $U 409  ]
+"197
+[e :U 408 ]
+[; ;main.c: 197: {
+{
+[; ;main.c: 198: if (((podatak) & (1 << (i))))
+"198
+[e $ ! != & -> _podatak `i << -> 1 `i _i -> 0 `i 411  ]
+[; ;main.c: 199: RC2 = 1;
+"199
+[e = _RC2 -> -> 1 `i `b ]
+[e $U 412  ]
+"200
+[e :U 411 ]
+[; ;main.c: 200: else
+[; ;main.c: 201: RC2 = 0;
+"201
+[e = _RC2 -> -> 0 `i `b ]
+[e :U 412 ]
+[; ;main.c: 202: _delay((unsigned long)((500)*(8000000/4000000.0)));
+"202
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;main.c: 204: if (((podatak) & (1 << (i))))
+"204
+[e $ ! != & -> _podatak `i << -> 1 `i _i -> 0 `i 413  ]
+[; ;main.c: 205: RC2 = 0;
+"205
+[e = _RC2 -> -> 0 `i `b ]
+[e $U 414  ]
+"206
+[e :U 413 ]
+[; ;main.c: 206: else
+[; ;main.c: 207: RC2 = 1;
+"207
+[e = _RC2 -> -> 1 `i `b ]
+[e :U 414 ]
+[; ;main.c: 208: _delay((unsigned long)((500)*(8000000/4000000.0)));
+"208
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"209
+}
+"196
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 408  ]
+[e :U 409 ]
+"209
+}
+[; ;main.c: 209: }
+[; ;main.c: 211: RC2 = 0;
+"211
+[e = _RC2 -> -> 0 `i `b ]
+[; ;main.c: 212: }
+"212
+[e :UE 404 ]
 }
