@@ -1435,7 +1435,7 @@ extern __bit __powerdown;
 extern __bit __timeout;
 
 
-# 19 "main.c"
+# 18 "main.c"
 #pragma config FOSC = HS
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -1445,14 +1445,13 @@ extern __bit __timeout;
 #pragma config WRT = OFF
 #pragma config CP = OFF
 
-# 53
+# 52
 char pagerID = 'K';
 char opsegID;
 char rf_data[2] = {0x00, 0x00};
 
-char melody[] = {'c', 'd', 'f', 'd', 'a', ' ', 'a', 'g', ' ', 'c', 'd', 'f', 'd', 'g', ' ', 'g', 'f', ' '};
-char tempo = 200;
-char play = 1;
+
+char play = 0;
 char t = 0;
 char loop = 0;
 char visoko = 0;
@@ -1460,55 +1459,135 @@ char prijem = 0;
 char i = 0;
 char kod = 0;
 char kodKraj = 0;
+char brojacLED = 0;
+char brojacVIB = 0;
 
-char debug = 1;
 
 enum {CEKANJE, PROZVAN, IZVANOPSEGA} STANJE;
+
 enum {PRAZNA, NIJEPRAZNA} BATERIJA;
+
 
 void init();
 void init_analog();
 void init_buzz();
 void init_batt();
 void init_rf();
-void init_interrupts();
+void init_debug();
 
 
-void pisi_eeprom(char ard, char data);
-char citaj_eeprom(char adr);
-void play_melody();
 void led_show();
+void noPrijem();
+void Prijem();
 
 
-void interrupt prekid();
-char bibici = 0;
+void interrupt prekidna_rutina();
 
-void main(void) {
+
+void main(void){
 init();
-STANJE = PROZVAN;
-while(1)
-{
-
-if (STANJE == PROZVAN && bibici == 1) {
+while(1) {
+if (STANJE == PROZVAN){
+RD4 = 0;
+RD5 = 1;
+RD6 = 0;
+if (play == 1){
 RC3 = 1;
 _delay((unsigned long)((1)*(8000000/4000.0)));
 RC3 = 0;
 _delay((unsigned long)((1)*(8000000/4000.0)));
 }
+} else if (STANJE == IZVANOPSEGA){
+RD4 = 1;
+RD5 = 0;
+RD6 = 0;
 
-# 177
+if (play == 1){
+RC3 = 1;
+_delay((unsigned long)((1)*(8000000/4000.0)));
+RC3 = 0;
+_delay((unsigned long)((1)*(8000000/4000.0)));
 }
-return;
+} else if (STANJE == CEKANJE){
+if (BATERIJA == PRAZNA){
+RD4 = 1;
+RD5 = 0;
+RD6 = 0;
+
+RD0 = 0;
+RD1 = 0;
+RD2 = 0;
+RD3 = 0;
+} else {
+RD4 = 0;
+RD5 = 0;
+RD6 = 0;
+
+RD0 = 1;
+RD1 = 1;
+RD2 = 1;
+RD3 = 1;
+}
+}
+}
 }
 
-void noPrijem()
-{
+void interrupt prekidna_rutina(){
+if(TMR2IE && TMR2IF){
+TMR2IF = 0;
+brojacLED++;
+if(brojacLED == 250){
+brojacLED = 0;
+brojacVIB++;
+if (STANJE == PROZVAN || STANJE == IZVANOPSEGA){
+led_show();
+if(brojacVIB == 2){
+play = 1;
+RA5 = 0;
+}
+if(brojacVIB == 5){
+RA5 = 1;
+brojacVIB = 0;
+play = 0;
+}
+}
+}
+} else if (INTE && INTF){
+
+INTE = 0;
+INTF = 0;
+
+TMR0IE = 1;
+TMR0IF = 0;
+} else if (TMR0IE && TMR0IF){
+TMR0IF = 0;
+if (prijem == 0) noPrijem();
+else Prijem();
+} else if (TMR1IE && TMR1IF){
+TMR1IF = 0;
+loop++;
+if (loop == 37){
+if (opsegID == 0x00)
+STANJE = IZVANOPSEGA;
+else {
+STANJE = CEKANJE;
+opsegID = 0x00;
+}
+loop = 0;
+GO = 1;
+}
+} else if (ADIE && ADIF){
+ADIF = 0;
+if (ADRESH > 60) BATERIJA = PRAZNA;
+else BATERIJA = NIJEPRAZNA;
+}
+}
+
+void noPrijem(){
 TMR0 = 206;
-if(RB0 == 1)
-{
+if(RB0 == 1){
 visoko++;
-if (visoko == 13)
-{
+if (visoko == 13){
 visoko = 0;
 INTE = 1;
 INTF = 0;
@@ -1518,9 +1597,7 @@ INTEDG = 0;
 TMR0IE = 0;
 prijem = 1;
 }
-}
-else
-{
+} else {
 visoko = 0;
 TMR0IE = 0;
 INTE = 1;
@@ -1529,8 +1606,7 @@ INTEDG = 1;
 }
 }
 
-void Prijem()
-{
+void Prijem(){
 TMR0 = 6;
 TMR0IF = 0;
 char k = 0;
@@ -1541,8 +1617,7 @@ else k = 1;
 if(RB0 == 1) ((rf_data[k]) |= (1 << (i)));
 else ((rf_data[k]) &= ~(1 << (i)));
 i++;
-if(i == 8)
-{
+if(i == 8){
 i = 0;
 prijem = 0;
 INTE = 1;
@@ -1550,14 +1625,11 @@ INTF = 0;
 INTEDG = 1;
 TMR0IE = 0;
 
-if(debug)
-{
+if(1 == 1){
 TXREG = rf_data[k];
 }
 
-
-if (k == 1)
-{
+if (k == 1){
 if(rf_data[0] == '*' && rf_data[1] == pagerID) kod++;
 else kod = 0;
 
@@ -1573,41 +1645,9 @@ rf_data[1] = 0x00;
 }
 }
 
-# 303
-char brojacLED = 0;
-char brojacVIB = 0;
-
-void interrupt prekid() {
-if(TMR2IE && TMR2IF) {
-TMR2IF = 0;
-brojacLED++;
-if(brojacLED == 250) {
-brojacLED = 0;
-brojacVIB++;
-if (STANJE == PROZVAN) {
-RD5 = 1;
-RD6 = 0;
-RD4 = 0;
-led_show();
-if(brojacVIB == 2)
-{
-bibici = 1;
-RA5 = 0;
-}
-if(brojacVIB == 5) {
-RA5 = 1;
-brojacVIB = 0;
-bibici = 0;
-}
-}
-}
-}
-
-}
 
 
-void init()
-{
+void init() {
 
 STANJE = CEKANJE;
 
@@ -1618,9 +1658,8 @@ BATERIJA = NIJEPRAZNA;
 TRISD = 0x00;
 TRISAbits.TRISA0 = 1;
 TRISAbits.TRISA5 = 0;
-TRISCbits.TRISC2 = 0;
-TRISBbits.TRISB0 = 1;
 TRISCbits.TRISC3 = 0;
+TRISBbits.TRISB0 = 1;
 
 
 
@@ -1633,22 +1672,21 @@ RD5 = 0;
 RD6 = 0;
 
 RA5 = 0;
-RC2 = 0;
 RC3 = 0;
 
 
+init_analog();
 init_buzz();
-
-
-
-
+init_batt();
+init_rf();
 PEIE = 1;
 GIE = 1;
+if (1 == 1)
+init_debug();
 }
 
 
-void init_analog()
-{
+void init_analog() {
 ADFM = 0;
 
 PCFG3 = 1;
@@ -1665,13 +1703,11 @@ ADCS1 = 1;
 ADCS0 = 1;
 
 ADON = 1;
+ADIE = 1;
 }
 
 
-void init_buzz()
-{
-
-# 405
+void init_buzz() {
 T2CKPS1 = 1;
 T2CKPS0 = 1;
 
@@ -1681,8 +1717,7 @@ TMR2IE = 1;
 }
 
 
-void init_batt()
-{
+void init_batt() {
 T1CKPS1 = 1;
 T1CKPS0 = 1;
 
@@ -1690,11 +1725,11 @@ T1OSCEN = 0;
 TMR1CS = 0;
 
 TMR1ON = 1;
+TMR1IE = 1;
 }
 
 
-void init_rf()
-{
+void init_rf() {
 T0CS = 0;
 
 PSA = 0;
@@ -1703,75 +1738,28 @@ PS1 = 1;
 PS0 = 0;
 }
 
-void init_interrupts()
-{
+
+void init_debug() {
 BRGH = 1;
 SPBRG = 51;
 SYNC = 0;
 SPEN = 1;
 TXEN = 1;
-
-GIE = 1;
-INTE = 1;
-INTEDG = 1;
-
-
-
-
 }
 
-void play_melody()
-{
-switch (melody[t])
-{
-case 'c':
-PR2 = 238;
-break;
-case 'd':
-PR2 = 212;
-break;
-case 'e':
-PR2 = 189;
-break;
-case 'f':
-PR2 = 179;
-break;
-case 'g':
-PR2 = 159;
-break;
-case 'a':
-PR2 = 142;
-break;
-case 'b':
-PR2 = 126;
-break;
-case 'C':
-PR2 = 119;
-break;
-}
-}
 
-void led_show()
-{
-if (RD0 == 0)
-{
+void led_show() {
+if (RD0 == 0) {
 RD0 = 1;
 RD1 = 0;
-}
-else if(RD1 == 0)
-{
+} else if(RD1 == 0) {
 RD1 = 1;
 RD2 = 0;
-}
-else if(RD2 == 0)
-{
+} else if(RD2 == 0) {
 RD2 = 1;
 RD3 = 0;
-}
-else
-{
+} else {
 RD3 = 1;
 RD0 = 0;
 }
-
 }
