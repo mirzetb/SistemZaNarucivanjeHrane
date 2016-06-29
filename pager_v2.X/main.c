@@ -51,18 +51,16 @@
 // Identifikacija pagera
 char pagerID = 'K';
 char opsegID;
-char rf_data[2] = {0x00, 0x00};
+char message_header = 0x00;
 
 // Pomocne vrijable
 char play = 0;
 char loop = 0;
 char i = 0;
-char kod = 0;
-char kodKraj = 0;
 char brojacLED = 0;
 char brojacVIB = 0;
 char sound = 0;
-
+char prazna = 0;
 // Stanja pagera
 enum {CEKANJE, PROZVAN, IZVANOPSEGA} STANJE;
 // Stanja baterije
@@ -73,7 +71,7 @@ void init();
 void init_analog();
 void init_buzz();
 void init_batt();
-void init_rf();
+void init_led();
 void init_debug();
 
 // Pmocne metode
@@ -85,8 +83,7 @@ void interrupt prekidna_rutina();
 
 void main(void){
     init();
-    STANJE = PROZVAN;
-    while(1) {
+    while(1){
         rf_decode();
     } 
 }
@@ -109,33 +106,34 @@ void rf_decode() {
         __delay_us(1000);
     }
     TXREG = podatak;
-    if(podatak == '*' || podatak == '#')
-        rf_data[0] = podatak;
-    else {
-        if(rf_data[0] == '*' && podatak == pagerID && STANJE == CEKANJE) kod++;
-        else kod = 0;
+    
+    if(podatak == '*' || podatak == '#'){
+        message_header = podatak;
+        opsegID = podatak;
+        if(STANJE == IZVANOPSEGA){
+            STANJE = CEKANJE;
+            RED = 0;
+            GREEN = 0;
+            VIB = 0;
+        }
+    } else if(podatak == pagerID) {
+        if(message_header == '*' && STANJE == CEKANJE || STANJE == IZVANOPSEGA)
+            STANJE = PROZVAN;
         
-        if(rf_data[0] == '#' && podatak == pagerID && STANJE == PROZVAN) kodKraj++;
-        else kodKraj = 0;
+        if(message_header == '#' && STANJE == PROZVAN || STANJE == IZVANOPSEGA) {
+            STANJE = CEKANJE;
+            RED = 0;
+            GREEN = 0;
+            VIB = 0;
+        }
+        message_header = 0x00;
     }
-    
-    if(kod == 3) {
-        STANJE = PROZVAN;
-        kod = 0;
-    }
-    
-    if(kodKraj == 2) {
-        STANJE = CEKANJE;
-        kodKraj = 0;
-    }
-    
-    opsegID = podatak;
 }
 
 void interrupt prekidna_rutina(){
     if (TMR0IE && TMR0IF){
         TMR0IF = 0;
-        if(STANJE != CEKANJE){ 
+        if(STANJE != CEKANJE && BATERIJA == NIJEPRAZNA){ 
             brojacLED++;
             if(brojacLED == 8){
                 play++;
@@ -152,35 +150,48 @@ void interrupt prekidna_rutina(){
         }
     } else if(TMR2IE && TMR2IF){
         TMR2IF = 0;
-        if(play < 2 && STANJE == PROZVAN) {
-            sound++;
-            //VIB = 1;
-            if(sound == 1) BUZZ = 1;
-            if (sound == 2) {
-                sound = 0;
-                BUZZ = 0;
-            }
-        } else if(play > 3) {
-            play = 0;
-            //VIB = 1;
+        if(STANJE == PROZVAN || STANJE == IZVANOPSEGA && BATERIJA == NIJEPRAZNA) {
+            if(play < 2){
+                sound++;
+                VIB = 0;
+                if(sound == 1) BUZZ = 1;
+                if (sound == 2){
+                    sound = 0;
+                    BUZZ = 0;
+                }
+            } else if(play < 4)
+                VIB = 1;
+              else
+                play = 0;
         }
     } else if (TMR1IE && TMR1IF){
         TMR1IF = 0;
         loop++;
-        if (loop == 37){
-           /* if (opsegID == 0x00)
+        if (loop == 19){
+           if (opsegID == 0x00)
                 STANJE = IZVANOPSEGA;
-            else {
-                STANJE = CEKANJE;
+            else 
                 opsegID = 0x00;
-            }*/
             loop = 0;
             GO = 1;
         }
     } else if (ADIE && ADIF){
         ADIF = 0;
-        if (ADRESH > 60) BATERIJA = PRAZNA;
-        else BATERIJA = NIJEPRAZNA;
+        if (ADRESH > 55) {
+            BATERIJA = PRAZNA;
+            RED = 1;
+            GREEN = 0;
+            D1 = D2 = D3 = D4 = 0;
+            prazna = 1;
+        } else {
+            BATERIJA = NIJEPRAZNA;
+            if(prazna == 1){
+                D1 = D2 = D3 = D4 = 1;
+                RED = 0;
+                GREEN = 0;
+            }
+            prazna = 0;
+        }
     }
 }
 
@@ -214,10 +225,10 @@ void init() {
     BUZZ = 0;   // Buzzer iskljucen
     
     // Inicijalizacija modula
-    //init_analog();
+    init_analog();
     init_buzz();
-    //init_batt();
-    init_rf();
+    init_batt();
+    init_led();
     PEIE = 1;
     GIE = 1;
     if (DEBUG == 1)
@@ -267,8 +278,8 @@ void init_batt() {
     TMR1IE = 1;
 }
 
-// Inicijalizacija Timer 0 modula [RF komunikacija]
-void init_rf() {
+// Inicijalizacija Timer 0 modula
+void init_led() {
     T0CS = 0;
     
     PSA = 0;    // Prescaler 1:8

@@ -8,15 +8,16 @@ namespace Serijska_komunikacija
 {
     public class Narudzba
     {
-        public string Naziv { get; set; }
-        public string Stanje { get; set; }
-        public string Pager { get; set; }
-
-        public Narudzba(string naziv, string stanje, string pager)
+        public string Jelo { get; set; }
+        public byte Pager { get; set; }
+        public Narudzba(string jelo, byte pager)
         {
-            Naziv = naziv;
-            Stanje = stanje;
+            Jelo = jelo;
             Pager = pager;
+        }
+        public override string ToString()
+        {
+            return Pager + " - " + Jelo;
         }
     }
 }

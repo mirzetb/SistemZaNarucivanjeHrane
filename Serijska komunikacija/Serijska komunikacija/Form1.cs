@@ -48,7 +48,6 @@ namespace Serijska_komunikacija
                 try
                 {
                     serialPort.Open();
-                    serialPort.Write("Pocetak");
                 }
                 catch (Exception ex)
                 {
@@ -74,38 +73,39 @@ namespace Serijska_komunikacija
         private void PrikaziPodatak(object sender, EventArgs e)
         {
             MessageBox.Show(serialPort.ReadExisting());
-            txtPodatak.Text = serialPort.ReadExisting();
-
-            serialPort.Write("*");
-            serialPort.Write("A");
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            serialPort.Write("#");
-            /*
-            if (txtPodatak.Text == "")
+            string pager = tbPager.Text;
+            if(pager == "")
             {
-                MessageBox.Show("Pager nije detektovan", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Niste unijeli broj pagera!", "Omaska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            else if (cBNarudzba.Text == "")
-            {
-                MessageBox.Show("Niste odabrali narudžbu", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            byte pagerID;
+            if(!Byte.TryParse(pager, out pagerID)) {
+                MessageBox.Show("Broj pagera mora biti u rasponu 0 - 255 (osim 42 i 35)!", "Omaska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            else
+            if(cbNarudzba.Text == "")
             {
-                Narudzbe.Add(new Narudzba(cBNarudzba.Text, "Cekanje", txtPodatak.Text));
-                txtPodatak.ResetText();
-                cBNarudzba.Text = "";
-                MessageBox.Show("Naručivanje uspješno obavljeno", "Poruka", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }*/
-        }
+                MessageBox.Show("Niste odabrali narudzbu!", "Omaska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-        private void txtPodatak_TextChanged(object sender, EventArgs e)
-        {
+            if(Narudzbe.Any(n => n.Pager == pagerID))
+            {
+                MessageBox.Show("Pager zauzet!", "Omaska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            Narudzbe.Add(new Narudzba(cbNarudzba.Text, pagerID));
+            MessageBox.Show("Narudzba: " + cbNarudzba.Text + " uspjesno dodana.", "Uspijeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            tbPager.Text = "";
         }
 
         private void btnResetuj_Click(object sender, EventArgs e)
@@ -119,11 +119,49 @@ namespace Serijska_komunikacija
             serialPort.Close();
         }
 
+        private byte send(byte header)
+        {
+            if (lbNarudzbe.Text == "")
+            {
+                MessageBox.Show("Niste odabrali naruzbu", "Omaska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 35;
+            }
+            string num = lbNarudzbe.Text[0].ToString() + lbNarudzbe.Text[1].ToString();
+            byte pager = Byte.Parse(num);
+
+            byte[] buffer = { header, pager };
+            try
+            {
+                serialPort.Write(buffer, 0, 2);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return pager;
+        }
         private void btnProzovi_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Test");
-       
-            serialPort.Write("a");
+            send(42);
+        } 
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            byte pager = send(35);
+            if (pager != 35)
+            {
+                var ind = Narudzbe.FindIndex(n => n.Pager == pager);
+                Narudzbe.RemoveAt(ind);
+                lbNarudzbe.DataSource = new List<Narudzba>(Narudzbe);
+            }
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            if (e.TabPageIndex == 1)
+            {
+                lbNarudzbe.DataSource = new List<Narudzba>(Narudzbe);
+            }
         }
     }
 }
