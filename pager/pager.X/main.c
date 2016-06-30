@@ -104,12 +104,11 @@ void main(void){
             RED = 1;
             GREEN = 0;
             BLUE = 0;
-            //-- drugi ton?
             if (play == 1){
                 BUZZ = 1;
-                __delay_ms(1);
+                __delay_us(343);
                 BUZZ = 0;
-                __delay_ms(1);
+                __delay_us(343);
             }
         } else if (STANJE == CEKANJE){
             if (BATERIJA == PRAZNA){
@@ -131,12 +130,24 @@ void main(void){
                 D3 = 1;
                 D4 = 1;
             } 
-        }   
+        }
     } 
 }
 
 void interrupt prekidna_rutina(){
-    if(TMR2IE && TMR2IF){
+    if (INTE && INTF){
+        // Prva uzlazna ivica -> Omogucavanje TMR0
+        INTE = 0;
+        INTF = 0;
+        
+        TMR0IE = 1;
+        TMR0IF = 0;
+        if(prijem == 1) __delay_us(450);
+    } else if (TMR0IE && TMR0IF){
+        TMR0IF = 0;
+        if (prijem == 0) noPrijem();
+        else Prijem();    
+    } else if(TMR2IE && TMR2IF){
         TMR2IF = 0;
         brojacLED++;
         if(brojacLED == 250){
@@ -155,27 +166,14 @@ void interrupt prekidna_rutina(){
                 }
             }
         }
-    } else if (INTE && INTF){
-        // Prva uzlazna ivica -> Omogucavanje TMR0
-        INTE = 0;
-        INTF = 0;
-        
-        TMR0IE = 1;
-        TMR0IF = 0;
-    } else if (TMR0IE && TMR0IF){
-        TMR0IF = 0;
-        if (prijem == 0) noPrijem();
-        else Prijem();    
     } else if (TMR1IE && TMR1IF){
         TMR1IF = 0;
         loop++;
         if (loop == 37){
-            if (opsegID == 0x00)
+         /* if (opsegID == 0x00)
                 STANJE = IZVANOPSEGA;
-            else {
-                STANJE = CEKANJE;
-                opsegID = 0x00;
-            }
+            else
+                opsegID = 0x00;*/
             loop = 0;
             GO = 1;
         }
@@ -199,6 +197,7 @@ void noPrijem(){
 
          TMR0IE = 0;
          prijem = 1;
+         //TMR0 = 41;
        }
    } else {
        visoko = 0;
@@ -213,7 +212,7 @@ void Prijem(){
     TMR0 = 6;
     TMR0IF = 0;
     char k = 0;
-
+    
     if(rf_data[0] == 0x00) k = 0;
     else k = 1;
 
@@ -339,6 +338,7 @@ void init_rf() {
     PS2 = 0;
     PS1 = 1;
     PS0 = 0;
+    INTE = 1;
 }
 
 // Inicijalizacija serijske komunikacije sa PC-om

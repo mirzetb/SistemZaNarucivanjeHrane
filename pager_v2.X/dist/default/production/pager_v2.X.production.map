@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\pager_v2.X.production.sym \
   --cmf=dist/default/production\pager_v2.X.production.cmf -z -Q16F877A \
-  -oC:\Users\MIRZET~1\AppData\Local\Temp\sag0.2 \
+  -oC:\Users\MIRZET~1\AppData\Local\Temp\s7m8.2 \
   -Mdist/default/production/pager_v2.X.production.map -E1 -ver=XC8 \
   -ASTACK=0110h-016fh -pstack=STACK -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
   -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -pfunctab=CODE -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\MIRZET~1\AppData\Local\Temp\sag0.obj \
+  -DENTRY=2 -k C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.obj \
   dist/default/production\pager_v2.X.production.obj 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F877A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\MIRZET~1\AppData\Local\Temp\sag0.obj
+C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.obj
                 end_init                             12       12        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        1     400E       0

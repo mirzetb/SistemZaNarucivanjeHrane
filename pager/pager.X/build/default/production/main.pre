@@ -1501,12 +1501,11 @@ _delay((unsigned long)((1)*(8000000/4000.0)));
 RD4 = 1;
 RD5 = 0;
 RD6 = 0;
-
 if (play == 1){
 RC3 = 1;
-_delay((unsigned long)((1)*(8000000/4000.0)));
+_delay((unsigned long)((343)*(8000000/4000000.0)));
 RC3 = 0;
-_delay((unsigned long)((1)*(8000000/4000.0)));
+_delay((unsigned long)((343)*(8000000/4000000.0)));
 }
 } else if (STANJE == CEKANJE){
 if (BATERIJA == PRAZNA){
@@ -1533,7 +1532,19 @@ RD3 = 1;
 }
 
 void interrupt prekidna_rutina(){
-if(TMR2IE && TMR2IF){
+if (INTE && INTF){
+
+INTE = 0;
+INTF = 0;
+
+TMR0IE = 1;
+TMR0IF = 0;
+if(prijem == 1) _delay((unsigned long)((450)*(8000000/4000000.0)));
+} else if (TMR0IE && TMR0IF){
+TMR0IF = 0;
+if (prijem == 0) noPrijem();
+else Prijem();
+} else if(TMR2IE && TMR2IF){
 TMR2IF = 0;
 brojacLED++;
 if(brojacLED == 250){
@@ -1552,27 +1563,12 @@ play = 0;
 }
 }
 }
-} else if (INTE && INTF){
-
-INTE = 0;
-INTF = 0;
-
-TMR0IE = 1;
-TMR0IF = 0;
-} else if (TMR0IE && TMR0IF){
-TMR0IF = 0;
-if (prijem == 0) noPrijem();
-else Prijem();
 } else if (TMR1IE && TMR1IF){
 TMR1IF = 0;
 loop++;
 if (loop == 37){
-if (opsegID == 0x00)
-STANJE = IZVANOPSEGA;
-else {
-STANJE = CEKANJE;
-opsegID = 0x00;
-}
+
+# 177
 loop = 0;
 GO = 1;
 }
@@ -1596,6 +1592,7 @@ INTEDG = 0;
 
 TMR0IE = 0;
 prijem = 1;
+
 }
 } else {
 visoko = 0;
@@ -1736,6 +1733,7 @@ PSA = 0;
 PS2 = 0;
 PS1 = 1;
 PS0 = 0;
+INTE = 1;
 }
 
 

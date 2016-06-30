@@ -88,6 +88,7 @@ void main(void){
     } 
 }
 
+// Funkcija za dekodiranje RF signala
 void rf_decode() {
     char podatak = 0;
     for (i = 0; i < 100; i++){

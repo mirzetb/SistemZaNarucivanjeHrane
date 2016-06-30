@@ -31,7 +31,7 @@ intentry CODE 0 4 4 E 2
 bssBANK0 BANK0 1 20 20 5 1
 dataCOMMON COMMON 1 7A 7A 1 1
 bssCOMMON COMMON 1 70 70 5 1
-$C:\Users\MIRZET~1\AppData\Local\Temp\sag0.obj
+$C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.obj
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 12 12 3 2
 config CONFIG 0 2007 2007 1 2
@@ -81,23 +81,23 @@ STRING 214-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\pager_v2.X.production.obj
-15 cinit CODE >336:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-15 cinit CODE >339:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-15 cinit CODE >388:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-16 cinit CODE >389:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-17 cinit CODE >390:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-18 cinit CODE >391:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-19 cinit CODE >392:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-1A cinit CODE >395:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-1B cinit CODE >396:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-1C cinit CODE >397:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-1D cinit CODE >398:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-1E cinit CODE >399:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-1F cinit CODE >404:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-22 cinit CODE >405:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-23 cinit CODE >411:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-23 cinit CODE >413:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
-24 cinit CODE >414:C:\Users\MIRZET~1\AppData\Local\Temp\sag0.
+15 cinit CODE >336:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+15 cinit CODE >339:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+15 cinit CODE >388:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+16 cinit CODE >389:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+17 cinit CODE >390:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+18 cinit CODE >391:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+19 cinit CODE >392:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+1A cinit CODE >395:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+1B cinit CODE >396:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+1C cinit CODE >397:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+1D cinit CODE >398:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+1E cinit CODE >399:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+1F cinit CODE >404:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+22 cinit CODE >405:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+23 cinit CODE >411:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+23 cinit CODE >413:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
+24 cinit CODE >414:C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.
 4 intentry CODE >133:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager_v2.X\main.c
 1C4 text9 CODE >302:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager_v2.X\main.c
 1C4 text9 CODE >303:C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\pager_v2.X\main.c
@@ -314,14 +314,14 @@ _SPEN C7 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
 _T0CS 40D 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
 _SYNC 4C4 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
 _TXEN 4C5 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\MIRZET~1\AppData\Local\Temp\sag0.obj
+___sp 0 0 STACK 2 stack C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.obj
 _init 2F6 0 CODE 0 text2 dist/default/production\pager_v2.X.production.obj
 _loop 22 0 BANK0 1 bssBANK0 dist/default/production\pager_v2.X.production.obj
 _main 3E8 0 CODE 0 maintext dist/default/production\pager_v2.X.production.obj
 _play 73 0 COMMON 1 bssCOMMON dist/default/production\pager_v2.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
 ltemp 7E 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
-start 24 0 CODE 0 init C:\Users\MIRZET~1\AppData\Local\Temp\sag0.obj
+start 24 0 CODE 0 init C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.obj
 ttemp 7E 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
 wtemp 7E 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
@@ -335,12 +335,12 @@ ttemp2 84 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
 ttemp3 87 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
 ttemp4 7F 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
 __HdataCOMMON 0 0 ABS 0 dataCOMMON -
-intlevel0 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\sag0.obj
-intlevel1 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\sag0.obj
-intlevel2 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\sag0.obj
-intlevel3 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\sag0.obj
-intlevel4 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\sag0.obj
-intlevel5 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\sag0.obj
+intlevel0 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.obj
+intlevel1 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.obj
+intlevel2 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.obj
+intlevel3 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.obj
+intlevel4 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.obj
+intlevel5 0 0 CODE 0 functab C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.obj
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _init_led 414 0 CODE 0 text3 dist/default/production\pager_v2.X.production.obj
 wtemp0 7E 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
@@ -383,7 +383,7 @@ _TMR1ON 80 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
 _TMR2IE 461 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
 _TMR2IF 61 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
 _TMR2ON 92 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
-___int_sp 0 0 STACK 2 stack C:\Users\MIRZET~1\AppData\Local\Temp\sag0.obj
+___int_sp 0 0 STACK 2 stack C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -446,7 +446,7 @@ __HidataCOMMON 0 0 ABS 0 idataCOMMON -
 __size_of_prekidna_rutina 0 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
 __HnvBANK0 0 0 ABS 0 nvBANK0 -
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\MIRZET~1\AppData\Local\Temp\sag0.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.obj
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 _opsegID 23 0 BANK0 1 bssBANK0 dist/default/production\pager_v2.X.production.obj
 __end_of_init_batt 414 0 CODE 0 text6 dist/default/production\pager_v2.X.production.obj
@@ -462,8 +462,8 @@ __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
 __end_of_init_analog 388 0 CODE 0 text7 dist/default/production\pager_v2.X.production.obj
 _init_batt 3FE 0 CODE 0 text6 dist/default/production\pager_v2.X.production.obj
 _init_buzz 3B0 0 CODE 0 text5 dist/default/production\pager_v2.X.production.obj
-stackhi 0 0 ABS 0 - C:\Users\MIRZET~1\AppData\Local\Temp\sag0.obj
-stacklo 0 0 ABS 0 - C:\Users\MIRZET~1\AppData\Local\Temp\sag0.obj
+stackhi 0 0 ABS 0 - C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.obj
+stacklo 0 0 ABS 0 - C:\Users\MIRZET~1\AppData\Local\Temp\s7m8.obj
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\pager_v2.X.production.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -

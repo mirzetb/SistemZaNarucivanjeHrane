@@ -1,10 +1,16 @@
 /*
- * File:   main.c
- * Author: mirzet brkic
- *
- * Created on February 26, 2016, 1:41 PM
+ * Embedded solutions and SHIT - Software-Hardware Integration and Testing
+ * Elektrotehnicki fakultet Sarajevo
+ * Odsjek za automatiku i elektroniku
+ * Praktikum automatike
+ * 
+ * Projektni zadatak: Sistem za narucivanje hrane u restoranu
+ * File:    Predajnik main.c
+ * Authors: Almir Besic
+ *          Mirzet Brkic
+ *          Semir Berkovic
  */
-
+// PIC16F1939
 
 #include <xc.h>
 // CONFIG1
@@ -45,82 +51,62 @@
 #define SCK RC3     // SCK pin RFID modula
 #define SDA RD2     // SDA pin RFID modula
 
+// Pomocne varijable
 char t = 0;
-char pod = 'A';
+char byteNo = 0;
+char rf_data[2];
+char pcData;
+char send = 0;
 
 void interrupt prekidna_rutina();
+
+// Pomocne funkcije
 void rf_send();
 void init();
 void init_serial();
-void init_rfid();
-void rf_send2(char podatak);
+void init_rf();
 
 void main(void) {
     init();
-    init_serial();
-    while(1) {
-        char k = 0;
-        for(k = 0; k<5; k++)
-        {
-        rf_send2('*');
-        __delay_ms(1000);
-        rf_send2('K');
-        __delay_ms(1000);
-        }
-        
-        __delay_ms(1000);
-        for(k = 0; k<5; k++)
-        {
-        rf_send2('#');
-        __delay_ms(1000);
-        rf_send2('K');
-        __delay_ms(1000);
-        }
-        __delay_ms(1000);
-        
-        /*
-        if(RCIF) { 
-            char var = RCREG;
-            if(var == '#') {
-                // dobio kod
-                TXREG = '*';
-                __delay_ms(50);
-                TXREG = 'A';
-                __delay_ms(50);
-            } else if(var == '*') { 
-                while(!RCIF);
-               char var2 = RCREG;
-               if(var2 == 'A') RD4 = 1;
-               __delay_ms(10000);
-               RD4 = 0;
-               TXREG = '#';
-               __delay_ms(50);
-               TXREG = 'A';
-               __delay_ms(50);
-            }
-        }*/
+    while(1){
     }
 }
 
-void interrupt prekidna_rutina()
-{
-    if(TMR0IE && TMR0IF)
-    {
+void interrupt prekidna_rutina(){
+    if(TMR0IE && TMR0IF){
         TMR0 = 6;
         TMR0IF = 0;
-        rf_send();
+        if(send == 1)
+            rf_send();
+        else t = 0;
+    } else if (RCIE && RCIF) {
+        pcData = RCREG;
+        if(pcData == '*' || pcData == '#') {
+            rf_data[0] = pcData;
+            send = 0;
+        }
+        else {
+            rf_data[1] = pcData;
+            send = 1;
+        }
+        
     }
 }
 
-void init()
-{
+// Inicijalizacija pinova, RF modula, serijske komunikacije i prekida
+void init(){
     TRISCbits.TRISC2 = 0;   // RC2 je izlazni [Data pin RF predajnika]
-    DATA = 1;
-    TRISDbits.TRISD4 = 0;
+    DATA = 0;
     
-    //GIE = 1;
-    
-    // TMR0
+    init_rf();
+    init_serial();
+    PEIE = 1;
+    RCIE = 1;
+    GIE = 1;
+}
+
+// Inicijalizacija TIMER0 [osnovni takt rf signala]
+void init_rf(){
     T0CS = 0;
     T0SE = 1;
     PSA = 0; // PRESCALER 1:4
@@ -131,36 +117,37 @@ void init()
     TMR0IE = 1;
 }
 
-void rf_send()
-{
+// Funkcija za generisanje naponskog nivoa RF signala (manchester enkodiranja)
+void rf_send(){
+    // "zauzimanje" etera - 10 promjena 0->1->0
     if (t == 0) DATA = 1;
     else if (t < 10) DATA = !DATA;
     else if (t < 16) DATA = 1;   
     else if (t < 17)  DATA = 0;
-    else 
-    {
-        if (t%2 == 1)
-        {
-            if (testBit(pod, (t - 17)/2)) DATA = 1;
+    else {
+        if (t%2 == 1){
+            // Signal podatka
+            if (testBit(rf_data[byteNo], (t - 17)/2)) DATA = 1;
             else DATA = 0;
-        }
-        else
-        {
-            if (testBit(pod, (t - 17)/2)) DATA = 0;
+        } else {
+            // Diferencijalni signal
+            if (testBit(rf_data[byteNo], (t - 17)/2)) DATA = 0;
             else DATA = 1;
         }
     }
     t++;
-    if (t == 34)
-    {
+    // Kraj poruke
+    if (t == 34){
         DATA = 0;
         t = 0;
-        __delay_ms(300);
-        //pod++;
-        //if (pod > 'z') pod = 'A';
+        if(byteNo == 0) 
+            byteNo = 1;
+        else 
+            byteNo = 0;
     }
 }
 
+// Inicijalizacija serijskog modula
 void init_serial() {
     SPEN = 1;
     SYNC = 0;
@@ -173,40 +160,3 @@ void init_serial() {
     TXEN = 1;
 }
 
-void init_rfid() {
-    SSPEN = 1;
-}
-
-void rf_send2(char podatak)
-{
-    char i;
-    for (i = 0; i < 5; i++)
-    {
-        DATA = 1;
-        __delay_us(500);
-        DATA = 0;
-        __delay_us(500);
-    }
-    
-    DATA = 1;
-    __delay_us(3000);
-    DATA = 0;
-    __delay_us(500);
-    
-    for (i = 0; i < 8; i++)
-    {
-        if (testBit(podatak, i))
-            DATA = 1;
-        else
-            DATA = 0;
-        __delay_us(500);
-        
-        if (testBit(podatak, i))
-            DATA = 0;
-        else
-            DATA = 1;
-        __delay_us(500);
-    }
-
-    DATA = 0;
-}

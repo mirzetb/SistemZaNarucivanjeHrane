@@ -13,21 +13,21 @@
 [v _eecpymem eecpymem `(v  1 e 0 0 ]
 "24
 [v _memcpyee memcpyee `(v  1 e 0 0 ]
-"58 C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\predajnik\predajnik.X\main.c
+"69 C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\predajnik\predajnik.X\main.c
 [v _main main `(v  1 e 0 0 ]
-"105
+"75
 [v _prekidna_rutina prekidna_rutina `II(v  1 e 0 0 ]
-"115
+"97
 [v _init init `(v  1 e 0 0 ]
-"134
+"109
+[v _init_rf init_rf `(v  1 e 0 0 ]
+"121
 [v _rf_send rf_send `(v  1 e 0 0 ]
-"164
+"151
 [v _init_serial init_serial `(v  1 e 0 0 ]
-"180
-[v _rf_send2 rf_send2 `(v  1 e 0 0 ]
 "857 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic16f1939.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @21 ]
-[s S45 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S33 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -37,20 +37,10 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1418
-[u S54 . 1 `S45 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES54  1 e 1 @142 ]
-[s S67 . 1 `uc 1 TRISD0 1 0 :1:0 
-`uc 1 TRISD1 1 0 :1:1 
-`uc 1 TRISD2 1 0 :1:2 
-`uc 1 TRISD3 1 0 :1:3 
-`uc 1 TRISD4 1 0 :1:4 
-`uc 1 TRISD5 1 0 :1:5 
-`uc 1 TRISD6 1 0 :1:6 
-`uc 1 TRISD7 1 0 :1:7 
-]
-"1479
-[u S76 . 1 `S67 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES76  1 e 1 @143 ]
+[u S42 . 1 `S33 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES42  1 e 1 @142 ]
+"3666
+[v _RCREG RCREG `VEuc  1 e 1 @409 ]
 "3719
 [v _SPBRGL SPBRGL `VEuc  1 e 1 @411 ]
 "3768
@@ -61,6 +51,10 @@
 [v _BRGH BRGH `VEb  1 e 0 @3314 ]
 "7954
 [v _CREN CREN `VEb  1 e 0 @3308 ]
+"8030
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"8308
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
 "8314
 [v _PS0 PS0 `VEb  1 e 0 @1192 ]
 "8316
@@ -71,12 +65,14 @@
 [v _PSA PSA `VEb  1 e 0 @1195 ]
 "8382
 [v _RC2 RC2 `VEb  1 e 0 @114 ]
+"8398
+[v _RCIE RCIE `VEb  1 e 0 @1165 ]
+"8400
+[v _RCIF RCIF `VEb  1 e 0 @141 ]
 "8698
 [v _SPEN SPEN `VEb  1 e 0 @3311 ]
 "8708
 [v _SREN SREN `VEb  1 e 0 @3309 ]
-"8738
-[v _SSPEN SSPEN `VEb  1 e 0 @4269 ]
 "8792
 [v _SYNC SYNC `VEb  1 e 0 @3316 ]
 "8794
@@ -89,48 +85,45 @@
 [v _TMR0IF TMR0IF `VEb  1 e 0 @90 ]
 "9002
 [v _TXEN TXEN `VEb  1 e 0 @3317 ]
-"48 C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\predajnik\predajnik.X\main.c
+"55 C:\Users\mirzet brkic\Desktop\V\pa\projekat\code\SistemZaNarucivanjeHrane\predajnik\predajnik.X\main.c
 [v _t t `uc  1 e 1 0 ]
-"49
-[v _pod pod `uc  1 e 1 0 ]
+"56
+[v _byteNo byteNo `uc  1 e 1 0 ]
+"57
+[v _rf_data rf_data `[2]uc  1 e 2 0 ]
 "58
+[v _pcData pcData `uc  1 e 1 0 ]
+"59
+[v _send send `uc  1 e 1 0 ]
+"69
 [v _main main `(v  1 e 0 0 ]
 {
-"62
-[v main@k k `uc  1 a 1 7 ]
-"103
+"73
 } 0
-"180
-[v _rf_send2 rf_send2 `(v  1 e 0 0 ]
-{
-[v rf_send2@podatak podatak `uc  1 a 1 wreg ]
-"182
-[v rf_send2@i i `uc  1 a 1 3 ]
-"180
-[v rf_send2@podatak podatak `uc  1 a 1 wreg ]
-"183
-[v rf_send2@podatak podatak `uc  1 a 1 2 ]
-"212
-} 0
-"164
-[v _init_serial init_serial `(v  1 e 0 0 ]
-{
-"174
-} 0
-"115
+"97
 [v _init init `(v  1 e 0 0 ]
 {
-"132
+"106
 } 0
-"105
+"151
+[v _init_serial init_serial `(v  1 e 0 0 ]
+{
+"161
+} 0
+"109
+[v _init_rf init_rf `(v  1 e 0 0 ]
+{
+"118
+} 0
+"75
 [v _prekidna_rutina prekidna_rutina `II(v  1 e 0 0 ]
 {
-"113
+"94
 } 0
-"134
+"121
 [v _rf_send rf_send `(v  1 e 0 0 ]
 {
-"162
+"148
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
